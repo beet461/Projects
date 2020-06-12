@@ -37,6 +37,12 @@ func quiz() {
 	}
 	fmt.Println("Q3) hwat si two amrledcbs is owt enoqtius hsiT lusp", "ti sI: ", "\n", "C) uofr", "\n", "A)lilmoni ", "\n", "B) ozre")
 	fmt.Scan(&quest3)
+	if quest3 != "C" {
+		fmt.Println("Depressing")
+		os.Exit(404)
+	} else {
+		fmt.Println(cor)
+	}
 }
 
 /*"Is it: ", "\n", "A) ", "\n", "B) ", "\n", "C) "*/
