@@ -5,9 +5,10 @@ import (
 	"os"
 )
 
-func main() {
+func quiz() {
 	var quest1 string
 	var quest2 string
+	var quest3 string
 	var goo string
 	cor := "Correct!"
 	fmt.Println("Welcome to the Grand Quiz, which makes no sense at all!")
@@ -34,7 +35,8 @@ func main() {
 	} else {
 		fmt.Println(cor)
 	}
-	fmt.Println("Q3) ")
+	fmt.Println("Q3) hwat si two amrledcbs is owt enoqtius hsiT lusp", "ti sI: ", "\n", "C) uofr", "\n", "A)lilmoni ", "\n", "B) ozre")
+	fmt.Scan(&quest3)
 }
 
 /*"Is it: ", "\n", "A) ", "\n", "B) ", "\n", "C) "*/
