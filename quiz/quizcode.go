@@ -23,13 +23,13 @@ func main() {
 	}
 	fmt.Println("Q1) How does a stone fly?", "Is it: ", "\n", "A) With a hydraulic press", "\n", "B) Chicken Wings", "\n", "C) Lava")
 	fmt.Scan(&quest1)
-	if quest1 != "D" {
+	if quest1 != "Y" {
 		fmt.Println("Go Away Moron")
 		os.Exit(404)
 	} else {
 		fmt.Println(cor)
 	}
-	fmt.Println("Q2) What is an example of a common drink?", "Is it: ", "\n", "A) Coffee", "\n", "B) Air", "\n", "C) Table")
+	fmt.Println("Q2) What is an example of a common drink?", "Is it: ", "\n", "A) Coffee", "\n", "C) Air", "\n", "E) Table")
 	fmt.Scan(&quest2)
 	if quest2 != "C" {
 		fmt.Println("Disappointing.")
@@ -37,7 +37,7 @@ func main() {
 	} else {
 		fmt.Println(cor)
 	}
-	fmt.Println("Q3) hwat si two amrledcbs is owt enoqtius hsiT lusp", "ti sI: ", "\n", "C) uofr", "\n", "A)lilmoni ", "\n", "B) ozre")
+	fmt.Println("Q3) hwat si two amrledcbs is owt enoqtius hsiT lusp", "ti sI: ", "\n", "E) uofr", "\n", "A)lilmoni ", "\n", "B) ozre")
 	fmt.Scan(&quest3)
 	if quest3 != "C" {
 		fmt.Println("Depressing")
@@ -47,7 +47,7 @@ func main() {
 	}
 	fmt.Println("Q4) Is this the last question on this quiz (read the first line of this quiz)?", "Is it: ", "\n", "A) oN", "\n", "B) No", "\n", "C) No")
 	fmt.Scan(&quest4)
-	if quest4 != "Yes" {
+	if quest4 != "T" {
 		fmt.Println("Noob")
 		os.Exit(404)
 	} else {
@@ -61,8 +61,20 @@ func main() {
 		fmt.Println("Congratulations, you have a certificate of stupid!")
 		os.Exit(398596582049)
 	} else if challenge == "........" {
-		fmt.Println("Woohoo you have got all of them correct!", "\n", "Now go away nerd.")
-		os.Exit(69420)
+		fmt.Println("Hmm you got most of them right.", "\n", "Now go away nerd.")
+		os.Exit(404)
+	} else if challenge == "SECRET" {
+		fmt.Println("Shh, this is a secret question. Anyway, what is the code word to pass this quiz?")
+		var secret string
+		fmt.Scan(&secret)
+		if secret == "YEET" {
+			fmt.Println("YES! You passed the quiz!")
+			fmt.Println("Now go away nerd")
+			os.Exit(404)
+		} else {
+			fmt.Println("You're a massive idiot you know")
+			os.Exit(404)
+		}
 	} else {
 		fmt.Println("Still wrong.")
 		os.Exit(404)
