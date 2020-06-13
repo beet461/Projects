@@ -31,7 +31,7 @@ func main() {
 	}
 	fmt.Println("Q2) What is an example of a common drink?", "Is it: ", "\n", "A) Coffee", "\n", "C) Air", "\n", "E) Table")
 	fmt.Scan(&quest2)
-	if quest2 != "C" {
+	if quest2 != "E" {
 		fmt.Println("Disappointing.")
 		os.Exit(404)
 	} else {
@@ -39,7 +39,7 @@ func main() {
 	}
 	fmt.Println("Q3) hwat si two amrledcbs is owt enoqtius hsiT lusp", "ti sI: ", "\n", "E) uofr", "\n", "A)lilmoni ", "\n", "B) ozre")
 	fmt.Scan(&quest3)
-	if quest3 != "C" {
+	if quest3 != "E" {
 		fmt.Println("Depressing")
 		os.Exit(404)
 	} else {
