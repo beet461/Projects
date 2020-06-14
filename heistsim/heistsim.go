@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"os"
 	"time"
 )
 
@@ -31,15 +32,19 @@ func main() {
 		case 0:
 			isHeistOn = false
 			fmt.Println("You have ruined it, get out.")
+			os.Exit(0)
 		case 1:
 			isHeistOn = false
 			fmt.Println("You have ruined it, get out.")
+			os.Exit(0)
 		case 2:
 			isHeistOn = false
 			fmt.Println("You have ruined it, get out.")
+			os.Exit(0)
 		case 3:
 			isHeistOn = false
 			fmt.Println("You have ruined it, get out.")
+			os.Exit(0)
 		default:
 			isHeistOn = true
 			fmt.Println("YOU HAVE DONE IT!")
