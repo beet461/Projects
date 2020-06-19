@@ -1,2 +1,2 @@
-# Go-Projects
+# Projects
 no
