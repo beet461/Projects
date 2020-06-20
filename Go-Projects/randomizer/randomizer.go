@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"os"
 	"time"
 )
 
@@ -10,7 +11,6 @@ func randomize() string {
 	rand.Seed(time.Now().UnixNano())
 	randomlimit := rand.Intn(100)
 	k := fmt.Sprintln("Your number is", randomlimit)
-	fmt.Println(k)
 	return k
 }
 
@@ -20,8 +20,10 @@ func main() {
 	r := "Type in go for another number or anything else to exit"
 	fmt.Println(r)
 	fmt.Scan(&word)
-	if word == "go"
-	fmt.Println(j)
-	main()
-
+	if word != "go" {
+		os.Exit(404)
+	} else {
+		fmt.Println(j)
+		main()
+	}
 }
