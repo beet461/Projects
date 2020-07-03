@@ -6,10 +6,8 @@ import (
 )
 
 func main() {
-	h := "h"
-	for h == "h" {
-		t := time.Now()
-		z, _ := t.Zone()
-		fmt.Printf("The time in your zone(%v) is %v", z, t)
-	}
+	t := time.Now()
+	z, _ := t.Zone()
+	fmt.Printf("The time in your zone(%v) is %v", z, t)
+	main()
 }
