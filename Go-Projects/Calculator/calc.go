@@ -61,4 +61,5 @@ func main() {
 			fmt.Println("Not a valid function!")
 		}
 	}
+	main()
 }

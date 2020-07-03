@@ -10,6 +10,6 @@ func main() {
 	for h == "h" {
 		t := time.Now()
 		z, _ := t.Zone()
-		fmt.Printf("\rThe time in your zone(%v) is %v", z, t)
+		fmt.Printf("The time in your zone(%v) is %v", z, t)
 	}
 }
