@@ -18,7 +18,8 @@ func start(function string, onum float64, senum float64) float64 {
 	case "%":
 		fmt.Println("Your answer is", (onum/100)*senum)
 	default:
-		os.Exit(707)
+		fmt.Println("You typed something in wrong.")
+		main()
 	}
 	var oops float64
 	oops = 404
@@ -27,9 +28,15 @@ func start(function string, onum float64, senum float64) float64 {
 
 func main() {
 	var function string
+	var exit string
 	var onum float64
 	var senum float64
-	fmt.Println("Choose a function, +, -, *,/, % (% is going to be the first number that you typed) or anything else to exit.")
+	fmt.Println("Type go to use the calculator or anything else to exit.")
+	fmt.Scan(&exit)
+	if exit != "go" {
+		os.Exit(707)
+	}
+	fmt.Println("Choose a function, +, -, *, /, % (% is going to be the first number that you typed)")
 	fmt.Scan(&function)
 	fmt.Println("Choose the first number")
 	fmt.Scan(&onum)
