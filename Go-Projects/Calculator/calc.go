@@ -12,9 +12,11 @@ func fraction(typ string) float64 {
 	var frac22 float64
 	fmt.Println("Choose the first fraction.")
 	fmt.Scan(&frac11)
+	fmt.Println("/")
 	fmt.Scan(&frac12)
 	fmt.Println("Choose the second fraction.")
 	fmt.Scan(&frac21)
+	fmt.Println("/")
 	fmt.Scan(&frac22)
 	fracans := (frac11 / frac12) / (frac21 / frac22)
 	fracadd := (frac11 / frac12) + (frac21 / frac22)
