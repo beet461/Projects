@@ -17,12 +17,8 @@ func main() {
 	var word string
 	j := randomize()
 	fmt.Println("Welcome to the randomizer! This is the place for random numbers.")
-	fmt.Println("Type in go to begin!")
+	fmt.Println("Type in anything to begin!")
 	fmt.Scan(&word)
-	for word != "go" {
-		fmt.Println("Try again")
-		fmt.Scan(&word)
-	}
 	fmt.Println("Your number is", j)
 	fmt.Println("Type in go for another number or anything else to exit")
 	fmt.Scan(&word)
