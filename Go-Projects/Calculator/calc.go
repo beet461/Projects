@@ -70,6 +70,9 @@ func main() {
 	fmt.Scan(&function)
 	if function == "-+" || function == "--" || function == "-*" || function == "-/" {
 		fraction(function)
+	} else if function == "-" {
+		fmt.Println("Not a valid function.")
+		main()
 	} else {
 		fmt.Println("Choose the first number")
 		fmt.Scan(&onum)
