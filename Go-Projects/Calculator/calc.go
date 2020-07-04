@@ -66,13 +66,14 @@ func main() {
 	}
 	fmt.Println("Choose a function, +, -, *, /, % (% is going to be the first number that you typed) or - (for fraction and put the function you want after it)")
 	fmt.Scan(&function)
-	if function == "-" {
+	if function == "-+" || function == "--" || function == "-*" || function == "-/" {
 		fraction(function)
+	} else {
+		fmt.Println("Choose the first number")
+		fmt.Scan(&onum)
+		fmt.Println("Choose the second number")
+		fmt.Scan(&senum)
+		start(function, onum, senum)
 	}
-	fmt.Println("Choose the first number")
-	fmt.Scan(&onum)
-	fmt.Println("Choose the second number")
-	fmt.Scan(&senum)
-	start(function, onum, senum)
 	main()
 }
