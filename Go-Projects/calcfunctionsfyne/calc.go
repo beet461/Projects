@@ -83,6 +83,10 @@ func calculate() {
 	calculate()
 }
 
+func hi() {
+	fmt.Println("hi")
+}
+
 func main() {
 
 }
