@@ -10,4 +10,6 @@ func main() {
 	w := a.NewWindow("Does this work?")
 
 	w.SetContent(widget.NewLabel("Hello, Humans"))
+    
+    w.ShowAndRun()
 }
