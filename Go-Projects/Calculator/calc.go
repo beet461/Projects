@@ -56,6 +56,10 @@ func start(function string, onum float64, senum float64) float64 {
 	return oops
 }
 
+func hi() {
+	fmt.Println("HI")
+}
+
 func main() {
 	var function string
 	var exit string
