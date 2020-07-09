@@ -1,0 +1,22 @@
+{
+ "name": "wailapp",
+ "description": "Enter your project description",
+ "author": {
+  "name": "Rushvith",
+  "email": "rushvithanthagiri@gmail.com"
+ },
+ "version": "0.1.0",
+ "binaryname": "wailapp",
+ "frontend": {
+  "dir": "frontend",
+  "install": "npm install",
+  "build": "npm run build",
+  "bridge": "src",
+  "serve": "npm run serve"
+ },
+ "WailsVersion": "",
+ "CrossCompile": false,
+ "Platform": "",
+ "Architecture": "",
+ "LdFlags": ""
+}
