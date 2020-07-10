@@ -18,19 +18,15 @@ func fraction(typ string) float64 {
 	fmt.Scan(&frac21)
 	fmt.Println("/")
 	fmt.Scan(&frac22)
-	fracans := (frac11 / frac12) / (frac21 / frac22)
-	fracadd := (frac11 / frac12) + (frac21 / frac22)
-	fracsub := (frac11 / frac12) - (frac21 / frac22)
-	fracmul := (frac11 / frac12) * (frac21 / frac22)
 	switch typ {
 	case "-+":
-		fmt.Println(fracadd)
+		fmt.Println((frac11 / frac12) + (frac21 / frac22))
 	case "--":
-		fmt.Println(fracsub)
+		fmt.Println((frac11 / frac12) - (frac21 / frac22))
 	case "-*":
-		fmt.Println(fracmul)
+		fmt.Println((frac11 / frac12) * (frac21 / frac22))
 	case "-/":
-		fmt.Println(fracans)
+		fmt.Println((frac11 / frac12) / (frac21 / frac22))
 	}
 	return 404
 }
