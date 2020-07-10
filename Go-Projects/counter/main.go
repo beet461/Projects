@@ -10,7 +10,7 @@ func main() {
 	var entry string
 	c = 0
 	h := false
-	fmt.Println("Would you like a one, microsecond, millisecond, second, minute, hour, day or year counter?")
+	fmt.Println("Would you like a one microsecond, millisecond, second, minute, hour, day, year, decade or century counter?")
 	fmt.Scan(&entry)
 	switch entry {
 	case "microsecond":
@@ -53,6 +53,18 @@ func main() {
 		for !h {
 			c++
 			time.Sleep(8760 * time.Hour)
+			fmt.Println(c)
+		}
+	case "decade":
+		for !h {
+			c++
+			time.Sleep(87600 * time.Hour)
+			fmt.Println(c)
+		}
+	case "century":
+		for !h {
+			c++
+			time.Sleep(876000 * time.Hour)
 			fmt.Println(c)
 		}
 	}
