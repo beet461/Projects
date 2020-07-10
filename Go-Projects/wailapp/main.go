@@ -7,9 +7,12 @@ import (
 	"github.com/wailsapp/wails"
 )
 
-func basic() string {
-	h := fmt.Sprintln("Hello ")
-	return h
+func basic() float64 {
+	var entry float64
+	var entry2 float64
+	fmt.Scan(&entry)
+	fmt.Scan(&entry2)
+	return entry + entry2
 }
 
 func main() {
