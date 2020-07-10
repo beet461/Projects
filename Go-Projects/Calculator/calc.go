@@ -31,18 +31,18 @@ func fraction(typ string) float64 {
 	return 404
 }
 
-func start(function string, onum float64, senum float64) float64 {
+func start(function string, firnum float64, secnum float64) float64 {
 	switch function {
 	case "+":
-		fmt.Println("Your answer is", onum+senum)
+		fmt.Println("Your answer is", firnum+secnum)
 	case "-":
-		fmt.Println("Your answer is", onum-senum)
+		fmt.Println("Your answer is", firnum-secnum)
 	case "*":
-		fmt.Println("Your answer is", onum*senum)
+		fmt.Println("Your answer is", firnum*secnum)
 	case "/":
-		fmt.Println("Your answer is", onum/senum)
+		fmt.Println("Your answer is", firnum/secnum)
 	case "%":
-		fmt.Println("Your answer is", (onum/100)*senum)
+		fmt.Println("Your answer is", (firnum/100)*secnum)
 	default:
 		fmt.Println("You typed something in wrong.")
 		main()
@@ -59,8 +59,8 @@ func hi() {
 func main() {
 	var function string
 	var exit string
-	var onum float64
-	var senum float64
+	var firnum float64
+	var secnum float64
 	fmt.Println("Type go to use the calculator or anything else to exit.")
 	fmt.Scan(&exit)
 	if exit != "go" {
@@ -75,10 +75,10 @@ func main() {
 		main()
 	} else {
 		fmt.Println("Choose the first number")
-		fmt.Scan(&onum)
+		fmt.Scan(&firnum)
 		fmt.Println("Choose the second number")
-		fmt.Scan(&senum)
-		start(function, onum, senum)
+		fmt.Scan(&secnum)
+		start(function, firnum, secnum)
 	}
 	main()
 }
