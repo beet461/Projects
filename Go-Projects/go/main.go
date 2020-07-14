@@ -2,14 +2,15 @@ package main
 
 import "fmt"
 
-type onstruct struct {
-	hi string
+type nums struct {
+	on int
 }
 
 func main() {
-	var yr onstruct
-	fmt.Scan(&yr)
-	yr.hi = yr.hi
-	fmt.Println("you wrote %v", yr.hi)
-
+	fmt.Println("start")
+	var h int
+	var hi nums
+	fmt.Scan(&h)
+	hi.on = h
+	fmt.Println(hi.on)
 }
