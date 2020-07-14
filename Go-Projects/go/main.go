@@ -13,4 +13,5 @@ func main() {
 	fmt.Scan(&h)
 	hi.on = h
 	fmt.Println(hi.on)
+
 }

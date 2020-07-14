@@ -2,8 +2,8 @@ package main
 
 import "fmt"
 
-func hi() {
-	fmt.Println("hi")
+func hi(h string) {
+	fmt.Println(h)
 }
 
 func main() {
