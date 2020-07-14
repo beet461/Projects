@@ -30,10 +30,12 @@ func randomize(limid int) int {
 func mainbit(limig int) {
 	j := randomize(limig)
 	var word string
-	fmt.Println("Type in anything to begin! Or exit to exit")
+	fmt.Println("Type in anything to begin! Or exit to exit. Or restart to restart")
 	fmt.Scan(&word)
 	if word == "exit" {
 		os.Exit(404)
+	} else if word == "restart" {
+		main()
 	}
 	fmt.Println("Your number is", j)
 	mainbit(limig)
