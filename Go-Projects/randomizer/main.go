@@ -13,18 +13,19 @@ func randomize() int {
 	return randomlimit
 }
 
-func main() {
-	var word string
+func mainbit() {
 	j := randomize()
-	fmt.Println("Welcome to the randomizer! This is the place for random numbers.")
-	fmt.Println("Type in anything to begin!")
-	fmt.Scan(&word)
-	fmt.Println("Your number is", j)
-	fmt.Println("Type in go for another number or anything else to exit")
+	var word string
+	fmt.Println("Type in anything to begin! Or exit to exit")
 	fmt.Scan(&word)
 	if word == "go" {
-		main()
-	} else {
 		os.Exit(404)
 	}
+	fmt.Println("Your number is", j)
+	mainbit()
+}
+
+func main() {
+	fmt.Println("Welcome to the randomizer! This is the place for random numbers.")
+	mainbit()
 }

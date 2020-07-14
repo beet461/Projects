@@ -2,16 +2,6 @@ package main
 
 import "fmt"
 
-type nums struct {
-	on int
-}
-
 func main() {
-	fmt.Println("start")
-	var h int
-	var hi nums
-	fmt.Scan(&h)
-	hi.on = h
-	fmt.Println(hi.on)
-
+	fmt.Println("There doesn't seem to be anything in htis file")
 }
