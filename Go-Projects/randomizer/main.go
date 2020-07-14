@@ -18,7 +18,7 @@ func mainbit() {
 	var word string
 	fmt.Println("Type in anything to begin! Or exit to exit")
 	fmt.Scan(&word)
-	if word == "go" {
+	if word == "exit" {
 		os.Exit(404)
 	}
 	fmt.Println("Your number is", j)
