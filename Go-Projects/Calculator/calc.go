@@ -6,27 +6,24 @@ import (
 )
 
 func fraction(typ string) float64 {
-	var frac11 float64
-	var frac12 float64
-	var frac21 float64
-	var frac22 float64
+	var fracs [4]float64
 	fmt.Println("Choose the first fraction.")
-	fmt.Scan(&frac11)
+	fmt.Scan(&fracs[0])
 	fmt.Println("/")
-	fmt.Scan(&frac12)
+	fmt.Scan(&fracs[1])
 	fmt.Println("Choose the second fraction.")
-	fmt.Scan(&frac21)
+	fmt.Scan(&fracs[2])
 	fmt.Println("/")
-	fmt.Scan(&frac22)
+	fmt.Scan(&fracs[3])
 	switch typ {
 	case "-+":
-		fmt.Println((frac11 / frac12) + (frac21 / frac22))
+		fmt.Println((fracs[0] / fracs[1]) + (fracs[2] / fracs[3]))
 	case "--":
-		fmt.Println((frac11 / frac12) - (frac21 / frac22))
+		fmt.Println((fracs[0] / fracs[1]) - (fracs[2] / fracs[3]))
 	case "-*":
-		fmt.Println((frac11 / frac12) * (frac21 / frac22))
+		fmt.Println((fracs[0] / fracs[1]) * (fracs[2] / fracs[3]))
 	case "-/":
-		fmt.Println((frac11 / frac12) / (frac21 / frac22))
+		fmt.Println((fracs[0] / fracs[1]) / (fracs[2] / fracs[3]))
 	}
 	return 404
 }
@@ -50,10 +47,6 @@ func start(function string, firnum float64, secnum float64) float64 {
 	var oops float64
 	oops = 404
 	return oops
-}
-
-func hi() {
-	fmt.Println("HI")
 }
 
 func main() {
