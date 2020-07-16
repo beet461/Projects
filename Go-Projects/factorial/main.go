@@ -12,6 +12,6 @@ func main() {
 	var i int
 	fmt.Println("\n", "Type in your number.")
 	fmt.Scan(&i)
-	fmt.Printf("Factorial of %d is %d", i, factorial(i))
+	fmt.Printf("Factorial of %d is %d. ", i, factorial(i))
 	main()
 }
