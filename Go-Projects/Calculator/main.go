@@ -59,7 +59,7 @@ func main() {
 	if exit != "go" {
 		os.Exit(707)
 	}
-	fmt.Println("Choose a function, +, -, *, /, % (% is going to be the first number that you typed), - (for fraction and put the function you want after it) or mod(modulus)")
+	fmt.Println("Choose a function, +, -, *, /, % (% is going to be the first number that you typed) or - (for fraction and put the function you want after it)")
 	fmt.Scan(&function)
 	if function == "-+" || function == "--" || function == "-*" || function == "-/" {
 		fraction(function)
