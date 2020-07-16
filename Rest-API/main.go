@@ -7,7 +7,7 @@ import (
 	"net/http"
 )
 
-type Article struct {
+type Articles struct {
 	Title   string `json:"Title"`
 	Desc    string `json:"desc"`
 	Content string `json:"content"`
