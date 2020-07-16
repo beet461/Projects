@@ -44,9 +44,7 @@ func start(function string, firnum float64, secnum float64) float64 {
 		fmt.Println("You typed something in wrong.")
 		main()
 	}
-	var oops float64
-	oops = 404
-	return oops
+	return 404
 }
 
 func main() {
