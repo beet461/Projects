@@ -30,8 +30,7 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 
 func handleRequests() {
 	http.HandleFunc("/", homePage)
-	log.Fatal(http.ListenAndServe(":10000", nil))
-	http.HandleFunc("/articles", returnAllArticles)
+	http.HandleFunc("/articles", AllArticles)
 	log.Fatal(http.ListenAndServe(":10000", nil))
 }
 
