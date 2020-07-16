@@ -16,6 +16,6 @@ func main() {
 	var i int
 	i = 5
 	for i = 0; i < 10; i++ {
-		fmt.Printf("%d ", fibonaci(i))
+		fmt.Printf("The factorial of 5 %d ", fibonaci(i))
 	}
 }
