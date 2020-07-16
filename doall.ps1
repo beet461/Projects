@@ -4,4 +4,4 @@ cd ~/doall
 
 .\updater.ps1
 
-cd ~/
+cd ~/Desktop/Projects
