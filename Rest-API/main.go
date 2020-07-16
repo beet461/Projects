@@ -20,7 +20,7 @@ func AllArticles(w http.ResponseWriter, r *http.Request) {
 		Article{Title: "Title", Desc: "Description", Content: "Content"},
 	}
 	fmt.Println("Endpoint Hit: returnAllArticles")
-	json.NewEncoder(w).Encode(Articles)
+	json.NewEncoder(w).Encode(Article)
 }
 
 func homePage(w http.ResponseWriter, r *http.Request) {
