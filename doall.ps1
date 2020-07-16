@@ -6,4 +6,4 @@ cd ~/doall
 
 cd ~/Desktop/Projects
 
-.\repeator.ps1
+.\doall.ps1
