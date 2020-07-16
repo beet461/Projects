@@ -5,3 +5,5 @@ cd ~/doall
 .\updater.ps1
 
 cd ~/Desktop/Projects
+
+.\repeator.ps1
