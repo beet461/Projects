@@ -16,6 +16,9 @@ type Article struct {
 var Articles []Article
 
 func returnAllArticles(w http.ResponseWriter, r *http.Request) {
+	articles := Articles{
+		Article{Title: "Title", Desc: "Description", Content: "Content"},
+	}
 	fmt.Println("Endpoint Hit: returnAllArticles")
 	json.NewEncoder(w).Encode(Articles)
 }
