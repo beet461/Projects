@@ -40,8 +40,6 @@ func start(function string, firnum float64, secnum float64) float64 {
 		fmt.Println("Your answer is", firnum/secnum)
 	case "%":
 		fmt.Println("Your answer is", (firnum/100)*secnum)
-	case "mod":
-		fmt.Println("Your answer is", firnum%secnum)
 	default:
 		fmt.Println("You typed something in wrong.")
 		main()
