@@ -10,6 +10,8 @@ func factorial(i int) int {
 }
 func main() {
 	var i int
+	fmt.Println("Type in your number.")
 	fmt.Scan(&i)
 	fmt.Printf("Factorial of %d is %d", i, factorial(i))
+	main()
 }
