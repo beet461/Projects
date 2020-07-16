@@ -40,6 +40,8 @@ func start(function string, firnum float64, secnum float64) float64 {
 		fmt.Println("Your answer is", firnum/secnum)
 	case "%":
 		fmt.Println("Your answer is", (firnum/100)*secnum)
+	case "mod":
+		fmt.Println("Your answer is", firnum%secnum))
 	default:
 		fmt.Println("You typed something in wrong.")
 		main()
@@ -59,7 +61,7 @@ func main() {
 	if exit != "go" {
 		os.Exit(707)
 	}
-	fmt.Println("Choose a function, +, -, *, /, % (% is going to be the first number that you typed) or - (for fraction and put the function you want after it)")
+	fmt.Println("Choose a function, +, -, *, /, % (% is going to be the first number that you typed), - (for fraction and put the function you want after it) or mod(modulus)")
 	fmt.Scan(&function)
 	if function == "-+" || function == "--" || function == "-*" || function == "-/" {
 		fraction(function)
