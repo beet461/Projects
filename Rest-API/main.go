@@ -35,9 +35,6 @@ func handleRequests() {
 }
 
 func main() {
-	Articles = []Article{
-		Article{Title: "Titlele", Desc: "Le Describetion", Content: "Articlecle Contentent"},
-		Article{Title: "Titlele 2", Desc: "Le Describetion 2", Content: "Articlecle Contentent 2"},
-	}
+
 	handleRequests()
 }
