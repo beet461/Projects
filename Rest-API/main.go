@@ -15,7 +15,7 @@ type Article struct {
 
 var Articles []Article
 
-func returnAllArticles(w http.ResponseWriter, r *http.Request) {
+func AllArticles(w http.ResponseWriter, r *http.Request) {
 	articles := Articles{
 		Article{Title: "Title", Desc: "Description", Content: "Content"},
 	}
