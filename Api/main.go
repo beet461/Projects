@@ -9,6 +9,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
+/*
 func get(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
@@ -38,6 +39,7 @@ func notFound(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusNotFound)
 	w.Write([]byte(`{"message": "not found"}`))
 }
+*/
 
 func params(w http.ResponseWriter, r *http.Request) {
 	pathParams := mux.Vars(r)
@@ -77,6 +79,7 @@ func main() {
 	api.HandleFunc("", post).Methods(http.MethodPost)
 	api.HandleFunc("", put).Methods(http.MethodPut)
 	api.HandleFunc("", delete).Methods(http.MethodDelete)
+	api.HandleFunc()
 	api.HandleFunc("", notFound)
 	log.Fatal(http.ListenAndServe(":8080", r))
 }
