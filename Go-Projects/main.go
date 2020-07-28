@@ -2,8 +2,7 @@ package main
 
 import "fmt"
 
-
-func frac(funx string, nu3 float64, nu4 float64) float64{
+func frac(funx string, nu3 float64, nu4 float64) float64 {
 	switch funx {
 	case "+":
 		fmt.Println(nu3 + nu4)
@@ -13,6 +12,7 @@ func frac(funx string, nu3 float64, nu4 float64) float64{
 		fmt.Println(nu3 * nu4)
 	case "/":
 		fmt.Println(nu3 / nu4)
+	}
 }
 
 func main() {
