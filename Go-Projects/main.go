@@ -15,7 +15,7 @@ func frac(funx string, nu3 float64, nu4 float64) float64{
 		fmt.Println(nu3 / nu4)
 }
 
-func mai() {
+func main() {
 	var funx string
 	var nu1 float64
 	var nu2 float64
