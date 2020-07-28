@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func frac(funx string, nu3 float64, nu4 float64) float64 {
 	switch funx {
@@ -43,5 +46,11 @@ func main() {
 		fmt.Println("And now choose your function (no, you cant use // or %).")
 		fmt.Scan(&funx)
 		frac(funx, nu3, nu4)
+	case "exit":
+		os.Exit(404)
+	default:
+		fmt.Println("Invalid function!")
+		main()
 	}
+
 }
