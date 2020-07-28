@@ -5,71 +5,52 @@ import (
 	"os"
 )
 
-func fraction(typ string) float64 {
-	var fracs [4]float64
-	fmt.Println("Choose the first fraction.")
-	fmt.Scan(&fracs[0])
-	fmt.Println("/")
-	fmt.Scan(&fracs[1])
-	fmt.Println("Choose the second fraction.")
-	fmt.Scan(&fracs[2])
-	fmt.Println("/")
-	fmt.Scan(&fracs[3])
-	switch typ {
-	case "-+":
-		fmt.Println((fracs[0] / fracs[1]) + (fracs[2] / fracs[3]))
-	case "--":
-		fmt.Println((fracs[0] / fracs[1]) - (fracs[2] / fracs[3]))
-	case "-*":
-		fmt.Println((fracs[0] / fracs[1]) * (fracs[2] / fracs[3]))
-	case "-/":
-		fmt.Println((fracs[0] / fracs[1]) / (fracs[2] / fracs[3]))
-	}
-	return 404
-}
-
-func start(function string, firnum float64, secnum float64) float64 {
-	switch function {
+func frac(funx string, nu3 float64, nu4 float64) float64 {
+	switch funx {
 	case "+":
-		fmt.Println("Your answer is", firnum+secnum)
+		fmt.Println(nu3 + nu4)
 	case "-":
-		fmt.Println("Your answer is", firnum-secnum)
+		fmt.Println(nu3 - nu4)
 	case "*":
-		fmt.Println("Your answer is", firnum*secnum)
+		fmt.Println(nu3 * nu4)
 	case "/":
-		fmt.Println("Your answer is", firnum/secnum)
-	case "%":
-		fmt.Println("Your answer is", (firnum/100)*secnum)
-	default:
-		fmt.Println("You typed something in wrong.")
-		main()
+		fmt.Println(nu3 / nu4)
 	}
 	return 404
 }
 
 func main() {
-	var function string
-	var exit string
-	var firnum float64
-	var secnum float64
-	fmt.Println("Type go to use the calculator or anything else to exit.")
-	fmt.Scan(&exit)
-	if exit != "go" {
-		os.Exit(707)
-	}
-	fmt.Println("Choose a function, +, -, *, /, % (% is going to be the first number that you typed) or - (for fraction and put the function you want after it)")
-	fmt.Scan(&function)
-	if function == "-+" || function == "--" || function == "-*" || function == "-/" {
-		fraction(function)
-	} else if function == "-" {
-		fmt.Println("Not a valid function.")
+	var funx string
+	var nu1 float64
+	var nu2 float64
+	fmt.Println("Choose your function, +, -, *, /, %, //(fraction) or exit.")
+	fmt.Scan(&funx)
+	fmt.Println("Choose your numbers (space needed).")
+	fmt.Scan(&nu1, &nu2)
+	switch funx {
+	case "+":
+		fmt.Println(nu1 + nu2)
+	case "-":
+		fmt.Println(nu1 - nu2)
+	case "*":
+		fmt.Println(nu1 * nu2)
+	case "/":
+		fmt.Println(nu1 / nu2)
+	case "%":
+		fmt.Println((nu1 / 100) * nu2)
+	case "//":
+		fmt.Println("Choose your second fraction.")
+		nu3 := nu1 + nu2
+		fmt.Scan(&nu1, &nu2)
+		nu4 := nu1 + nu2
+		fmt.Println("And now choose your function (no, you cant use // or %).")
+		fmt.Scan(&funx)
+		frac(funx, nu3, nu4)
+	case "exit":
+		os.Exit(404)
+	default:
+		fmt.Println("Invalid function!")
 		main()
-	} else {
-		fmt.Println("Choose the first number")
-		fmt.Scan(&firnum)
-		fmt.Println("Choose the second number")
-		fmt.Scan(&secnum)
-		start(function, firnum, secnum)
 	}
-	main()
+
 }
