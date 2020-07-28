@@ -42,5 +42,6 @@ func main() {
 		nu4 := nu1 + nu2
 		fmt.Println("And now choose your function (no, you cant use // or %).")
 		fmt.Scan(&funx)
+		frac(funx, nu3, nu4)
 	}
 }
