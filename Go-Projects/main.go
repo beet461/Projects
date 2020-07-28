@@ -13,6 +13,7 @@ func frac(funx string, nu3 float64, nu4 float64) float64 {
 	case "/":
 		fmt.Println(nu3 / nu4)
 	}
+	return 404
 }
 
 func main() {
