@@ -33,7 +33,7 @@ func main() {
 	case "/":
 		fmt.Println(nu1 / nu2)
 	case "%":
-		fmt.Println((nu1 / 100) * nu2)
+		fmt.Println((nu1 / 100) * nu2))
 	case "//":
 		fmt.Println("Choose your second fraction.")
 		nu3 := nu1 + nu2
