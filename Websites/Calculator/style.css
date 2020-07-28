@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+input[type="button"]{
+    outline:none;
+}
+ input[type="button"]::-moz-focus-inner {
+    border: 0;
+}
+
+.calc-button {
+    background-color: lightblue;
+    border: 5px solid lightblue;
+    height: 65px;
+    width: 65px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.calc-button:hover {
+    background-color: lightcoral;
+    border: 5px solid lightcoral;
+}
+
+.calc-button-sym {
+    background-color: lightcoral;
+    border: 5px solid lightcoral;
+    height: 65px;
+    width: 65px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.calc-button-sym:hover {
+    background-color: lightblue;
+    border: 5px solid lightblue;
+    height: 65px;
+    width: 65px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.calc-button-name {
+    background-color: lightgoldenrodyellow;
+    border: 5px solid lightgoldenrodyellow;
+    height: 65px;
+    width: 65px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+}
