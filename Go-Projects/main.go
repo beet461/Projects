@@ -10,5 +10,16 @@ func main() {
 	fmt.Scan(&funx)
 	fmt.Println("Choose your numbers (space needed).")
 	fmt.Scan(&nu1, &nu2)
-	fmt.Println(nu1, nu2)
+	switch funx {
+	case "+":
+		fmt.Println(nu1 + nu2)
+	case "-":
+		fmt.Println(nu1 - nu2)
+	case "*":
+		fmt.Println(nu1 * nu2)
+	case "/":
+		fmt.Println(nu1 / nu2)
+	case "%":
+		fmt.Println((nu1 / 100) * nu2)
+	}
 }
