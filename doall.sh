@@ -4,55 +4,55 @@ go build main.go
 
 cd ..
 
-cd ./Go-Projects/counter
+cd ./counter
 
 go build main.go
 
 cd ..
 
-cd ./Go-Projects/factorial
+cd ./factorial
 
 go build main.go
 
 cd ..
 
-cd ./Go-Projects/fibbonacci
+cd ./fibbonacci
 
 go build main.go
 
 cd ..
 
-cd ./Go-Projects/go
+cd ./go
 
 go build main.go
 
 cd ..
 
-cd ./Go-Projects/heistsim
+cd ./heistsim
 
 go build main.go
 
 cd ..
 
-cd ./Go-Projects/quiz
+cd ./quiz
 
 go build main.go
 
 cd ..
 
-cd ./Go-Projects/randomizer
+cd ./randomizer
 
 go build main.go
 
 cd ..
 
-cd ./Go-Projects/spaceTravel
+cd ./spaceTravel
 
 go build main.go
 
 cd ..
 
-cd ./Go-Projects/time
+cd ./time
 
 go build main.go
 
