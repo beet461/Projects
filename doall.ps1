@@ -1,3 +1,8 @@
+git add . 
+git commit -m "Up to date"
+git push
+
+
 cd .\Go-Projects\Calculator
 
 go build main.go
@@ -60,7 +65,4 @@ cd ..
 
 cd ..
 
-git add . 
-git commit -m "Up to date"
-git push
 
