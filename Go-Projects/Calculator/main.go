@@ -2,22 +2,9 @@ package main
 
 import (
 	"fmt"
-	"os"
-)
 
-func frac(funx string, nu3 float64, nu4 float64) float64 {
-	switch funx {
-	case "+":
-		fmt.Println(nu3 + nu4)
-	case "-":
-		fmt.Println(nu3 - nu4)
-	case "*":
-		fmt.Println(nu3 * nu4)
-	case "/":
-		fmt.Println(nu3 / nu4)
-	}
-	return 404
-}
+	calc "github.com/beet461/Importable/Calc"
+)
 
 func main() {
 	var funx string
@@ -27,30 +14,5 @@ func main() {
 	fmt.Scan(&funx)
 	fmt.Println("Choose your numbers (space needed).")
 	fmt.Scan(&nu1, &nu2)
-	switch funx {
-	case "+":
-		fmt.Println(nu1 + nu2)
-	case "-":
-		fmt.Println(nu1 - nu2)
-	case "*":
-		fmt.Println(nu1 * nu2)
-	case "/":
-		fmt.Println(nu1 / nu2)
-	case "%":
-		fmt.Println((nu1 / 100) * nu2)
-	case "//":
-		fmt.Println("Choose your second fraction.")
-		nu3 := nu1 + nu2
-		fmt.Scan(&nu1, &nu2)
-		nu4 := nu1 + nu2
-		fmt.Println("And now choose your function (no, you cant use // or %).")
-		fmt.Scan(&funx)
-		frac(funx, nu3, nu4)
-	case "exit":
-		os.Exit(404)
-	default:
-		fmt.Println("Invalid function!")
-		main()
-	}
-
+	calc.Calculate(funx, nu1, nu2)
 }
