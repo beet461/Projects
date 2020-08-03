@@ -18,5 +18,6 @@ func main() {
 	fmt.Scan(&in)
 	for i = 0; i < in; i++ {
 		fmt.Printf("%d ", fibonacci(i))
+		fmt.Println(" ")
 	}
 }
