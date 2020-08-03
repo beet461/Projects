@@ -16,7 +16,7 @@ func main() {
 	var in int
 	fmt.Println("Choose how many numbers of the fibonacci sequence you want to know.")
 	fmt.Scan(&in)
-	fmt.Print("____")
+	fmt.Println("____")
 	for i = 0; i < in; i++ {
 		fmt.Printf("%d ", fibonacci(i))
 		fmt.Println(" ")
