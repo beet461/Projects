@@ -19,7 +19,7 @@ func randomize(limid int) int {
 	} else if word == "restart" {
 		main()
 	}
-	fmt.Println("Your number is", randomlimit)
+	fmt.Println("\r Your number is", randomlimit)
 	randomize(limid)
 	return randomlimit
 }
