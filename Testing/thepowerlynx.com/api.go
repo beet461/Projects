@@ -6,7 +6,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func web() {
+func web(http.ResponseWriter, *http.Request) {
 
 }
 
