@@ -11,7 +11,7 @@ function time10() {
 
 function clear() {
     chec = true;
-    console.log(chec)
+    console.log(chec);
 }
 
 function seven() {
