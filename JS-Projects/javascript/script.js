@@ -4,26 +4,31 @@ var af = 0;
 var af2 =  0;
 var chec = false;
 
-function time10() {
-    chec = false;
-    console.log(chec);
-}
 
-function clear() {
+function time10() {
     chec = true;
     console.log(chec);
 }
 
+function reset() {
+    chec = false;
+    console.log(chec);
+}
+
 function seven() {
+    var h = document.getElementById("7").nodeValue;
+    console.log(h)
+    if (h !== undefined) {
     if (chec === true) {
         time += 7;
         af++;
-        document.getElementById("7").innerHTML ="7 x " + af * 10 + " = " + time * 10;
+        document.getElementById("7").innerHTML = h * 10;
     } else {
         time += 7;
         af++;
         document.getElementById("7").innerHTML ="7 x " + af + " = " + time;
-    }       
+    }      
+} 
 }
 
 function eleven() {
