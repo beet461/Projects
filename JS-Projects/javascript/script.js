@@ -27,8 +27,6 @@ function seven() {
     if (h !== undefined) {
     if (chec === true) {
         document.getElementById("7").innerHTML ="7 x " + af * 10 + " = " + time * 10;
-        a = af * 10
-        time = time * 10
     } else {
         document.getElementById("7").innerHTML = sev;
     }      
