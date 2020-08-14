@@ -19,13 +19,12 @@ function reset() {
 function seven() {
     time += 7
     af ++
-    var sev = "7 x " + af + " = " + time;
+    var sev = "7 x " + a +  af + " = " + time;
     var h = document.getElementById("7").nodeValue;
     console.log(h)
     if (h !== undefined) {
     if (chec === true) {
         document.getElementById("7").innerHTML ="7 x " + af * 10 + " = " + time * 10;
-        
         a = af * 10
         time = time * 10
     } else {
