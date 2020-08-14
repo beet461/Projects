@@ -12,7 +12,7 @@ function time10() {
 
 function reset() {
     chec = false;
-    console.log(chec);
+    console.log(chec); 
 }
 
 function seven() {
