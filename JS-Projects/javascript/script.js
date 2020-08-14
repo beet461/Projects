@@ -3,6 +3,7 @@ var time2 = 0;
 var af = 0;
 var af2 =  0;
 var chec = false;
+var a = 0;
 
 
 function time10() {
