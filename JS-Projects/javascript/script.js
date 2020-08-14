@@ -28,7 +28,6 @@ function seven() {
     af ++
     var h = document.getElementById("7").nodeValue;
     console.log(h)
-    if (h !== undefined) {
     if (chec === true) {
         f10 = af * 10
         t10 = time * 10
@@ -36,7 +35,7 @@ function seven() {
     } else {
         sev()
     }      
-} 
+ 
 }
 
 function eleven() {
