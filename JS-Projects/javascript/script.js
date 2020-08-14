@@ -25,9 +25,6 @@ function sev() {
 }
 
 function seven() {
-    b = af + a
-    time += 7
-    af ++
     var h = document.getElementById("7").nodeValue;
     console.log(h)
     if (chec === true) {
