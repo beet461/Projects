@@ -17,6 +17,17 @@ function reset() {
     console.log(chec); 
 }
 
+function seven() {
+    var h = document.getElementById("7").nodeValue;
+    console.log(h)
+    if (chec === true) {
+        document.getElementById("7").innerHTML ="7 x " + af * 10 + " = " + time * 10;
+    } else {
+        sev()
+    }      
+
+}
+
 function sev() {
     af++
     time += 7
@@ -24,18 +35,7 @@ function sev() {
     document.getElementById("7").innerHTML = sev;
 }
 
-function seven() {
-    var h = document.getElementById("7").nodeValue;
-    console.log(h)
-    if (chec === true) {
-        f10 = af * 10
-        t10 = time * 10
-        document.getElementById("7").innerHTML ="7 x " + af * 10 + " = " + time * 10;
-    } else {
-        sev()
-    }      
 
-}
 
 function eleven() {
     if (chec === true) {
