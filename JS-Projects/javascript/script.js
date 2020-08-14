@@ -17,6 +17,7 @@ function reset() {
 
 function seven() {
     time += 7
+    af ++
     var sev = "7 x " + af + " = " + time
     var h = document.getElementById("7").nodeValue;
     console.log(h)
