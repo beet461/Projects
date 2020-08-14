@@ -18,7 +18,7 @@ function reset() {
 }
 
 function sev() {
-    var sev = "7 x " + f10 + " = " + t10;
+    var sev = "7 x " + af + " = " + time;
     document.getElementById("7").innerHTML = sev;
 }
 
@@ -35,7 +35,7 @@ function seven() {
     } else {
         sev()
     }      
-        
+
 }
 
 function eleven() {
