@@ -4,6 +4,7 @@ var af = 0;
 var af2 =  0;
 var chec = false;
 var a = 0;
+var b = 0;
 
 
 function time10() {
@@ -17,9 +18,10 @@ function reset() {
 }
 
 function seven() {
+    b = af + a
     time += 7
     af ++
-    var sev = "7 x " + a + af + " = " + time;
+    var sev = "7 x " + b + " = " + time;
     var h = document.getElementById("7").nodeValue;
     console.log(h)
     if (h !== undefined) {
