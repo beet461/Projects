@@ -18,16 +18,16 @@ function reset() {
 function seven() {
     time += 7
     af ++
-    var sev = "7 x " + af + " = " + time
+    var sev = "7 x " + af + " = " + time;
     var h = document.getElementById("7").nodeValue;
     console.log(h)
     if (h !== undefined) {
     if (chec === true) {
         time += 7;
         af++;
-        document.getElementById("7").innerHTML = h * 10;
+        document.getElementById("7").innerHTML = time * 10;
     } else {
-        document.getElementById("7").innerHTML =sev;
+        document.getElementById("7").innerHTML = sev;
     }      
 } 
 }
