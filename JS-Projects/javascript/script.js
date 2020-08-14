@@ -18,6 +18,8 @@ function reset() {
 }
 
 function sev() {
+    af++
+    time += 7
     var sev = "7 x " + af + " = " + time;
     document.getElementById("7").innerHTML = sev;
 }
