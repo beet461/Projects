@@ -17,18 +17,24 @@ function reset() {
     console.log(chec); 
 }
 
+function sev() {
+    var sev = "7 x " + f10 + " = " + t10;
+    document.getElementById("7").innerHTML = sev;
+}
+
 function seven() {
     b = af + a
     time += 7
     af ++
-    var sev = "7 x " + b + " = " + time;
     var h = document.getElementById("7").nodeValue;
     console.log(h)
     if (h !== undefined) {
     if (chec === true) {
+        f10 = af * 10
+        t10 = time * 10
         document.getElementById("7").innerHTML ="7 x " + af * 10 + " = " + time * 10;
     } else {
-        document.getElementById("7").innerHTML = sev;
+        sev()
     }      
 } 
 }
