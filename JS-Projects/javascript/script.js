@@ -27,9 +27,7 @@ function seven() {
         af++;
         document.getElementById("7").innerHTML = h * 10;
     } else {
-        time += 7;
-        af++;
-        document.getElementById("7").innerHTML ="7 x " + af + " = " + time;
+        document.getElementById("7").innerHTML =sev;
     }      
 } 
 }
