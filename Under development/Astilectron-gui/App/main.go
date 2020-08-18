@@ -20,4 +20,5 @@ func main() {
 	a.Start()
 
 	// Blocking
+	a.Wait()
 }
