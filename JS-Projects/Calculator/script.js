@@ -1,3 +1,4 @@
 var x = prompt("Calculation")
-eval(x)
+var y = eval(x)
+document.getElementById("eval").innerHTML = y;
 
