@@ -21,7 +21,9 @@ func main() {
 		Height: astikit.IntPtr(600),
 		Width:  astikit.IntPtr(600),
 	})
+
 	w.Create()
+
 	defer a.Close()
 
 	// Start astilectron
