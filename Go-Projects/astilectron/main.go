@@ -31,6 +31,8 @@ func main() {
 
 	w.OpenDevTools()
 
+	defer w.CloseDevTools()
+
 	w.OnMessage(func(m *astilectron.EventMessage) interface{} {
 		// Unmarshal
 		var jsmsg string
