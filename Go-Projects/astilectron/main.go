@@ -29,6 +29,18 @@ func main() {
 
 	w.Create()
 
+	w.OnMessage(func(m *astilectron.EventMessage) interface{} {
+		// Unmarshal
+		var jsmsg string
+		m.Unmarshal(&jsmsg)
+
+		// Process message
+		if jsmsg == "hello" {
+			return "world"
+		}
+		return nil
+	})
+
 	// Blocking pattern
 	a.Wait()
 }
