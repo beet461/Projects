@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 
@@ -27,8 +26,6 @@ func main() {
 		Height: astikit.IntPtr(600),
 		Width:  astikit.IntPtr(600),
 	})
-
-	fmt.Println("hi")
 
 	w.Create()
 
