@@ -1,1 +1,5 @@
-var a = 67
+package main
+
+func main() {
+	var a = 69
+}
