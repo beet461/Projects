@@ -34,7 +34,6 @@ func main() {
 		var jsmsg string
 		m.Unmarshal(&jsmsg)
 
-		// Process message
 		if jsmsg == "hello" {
 			return "world"
 		}
