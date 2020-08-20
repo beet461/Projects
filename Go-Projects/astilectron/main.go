@@ -29,6 +29,8 @@ func main() {
 
 	w.Create()
 
+	w.OpenDevTools()
+
 	w.OnMessage(func(m *astilectron.EventMessage) interface{} {
 		// Unmarshal
 		var jsmsg string
