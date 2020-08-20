@@ -1,4 +1,4 @@
-function phrompt() {
-    var x = prompt("Calculation")
-    document.getElementById("eval").value= eval(x);
+function answer() {
+   const x = document.getElementById("name").value;
+   document.getElementById("ans").innerHTML = eval(x);
 }
