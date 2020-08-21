@@ -34,10 +34,8 @@ func main() {
 	defer w.CloseDevTools()
 
 	w.OnMessage(func(m *astilectron.EventMessage) interface{} {
-		// Unmarshal
 		var jsmsg string
 		m.Unmarshal(&jsmsg)
-
 		if jsmsg == "hello" {
 			return "world"
 		}
