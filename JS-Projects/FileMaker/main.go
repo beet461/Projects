@@ -1,10 +1,12 @@
 package main
 
 import (
+	"net/http"
+
 	"github.com/gorilla/mux"
 )
 
-func webpack(func(http.ResponseWriter, *http.Request) {
+func webpack(http.ResponseWriter, *http.Request) {
 
 }
 
