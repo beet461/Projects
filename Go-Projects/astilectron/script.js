@@ -6,7 +6,7 @@ function sendmsg() {
         });
         astilectron.onMessage(function(message) {
             // Process message
-            if (message === "hello") {
+            if (message === "world") {
                 return "world";
             }
         });
