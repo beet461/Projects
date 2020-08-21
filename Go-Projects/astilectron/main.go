@@ -38,7 +38,7 @@ func main() {
 
 		// Process message
 		if s == "hello" {
-			w.SendMessage("hello", func(m *astilectron.EventMessage) {
+			w.SendMessage("world", func(m *astilectron.EventMessage) {
 				// Unmarshal
 				var s string
 				m.Unmarshal(&s)
