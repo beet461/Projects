@@ -31,6 +31,15 @@ func main() {
 
 	w.OpenDevTools()
 
+	w.SendMessage("hello", func(m *astilectron.EventMessage) {
+		// Unmarshal
+		var s string
+		m.Unmarshal(&s)
+
+		// Process message
+		log.Printf("received %s\n", s)
+	})
+
 	defer w.CloseDevTools()
 
 	// Blocking pattern
