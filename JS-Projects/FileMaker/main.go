@@ -4,7 +4,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func webpack() {
+func webpack(func(http.ResponseWriter, *http.Request) {
 
 }
 
