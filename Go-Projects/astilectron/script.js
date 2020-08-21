@@ -5,6 +5,9 @@ function sendmsg() {
         astilectron.sendMessage(x, function(message) {
             console.log("received " + message)
         });
+        if (message === hello) {
+            console.log(x)
+        }
     })
     console.log(69)
 }
