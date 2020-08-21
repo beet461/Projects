@@ -6,7 +6,7 @@ function sendmsg() {
             console.log("received " + message)
         });
         if (message === "world")  {
-            console.log(x)
+            console.log(420)
         }
     })
     console.log(69)
