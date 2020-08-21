@@ -33,19 +33,6 @@ func main() {
 
 	defer w.CloseDevTools()
 
-	w.OnMessage(func(m *astilectron.EventMessage) interface{} {
-		var jsmsg string
-		m.Unmarshal(&jsmsg)
-		if jsmsg == "hello" {
-			w.SendMessage("world", func(m *astilectron.EventMessage) {
-				var s string
-				m.Unmarshal(&s)
-				log.Printf("received %s\n", s)
-			})
-		}
-		return nil
-	})
-
 	// Blocking pattern
 	a.Wait()
 }
