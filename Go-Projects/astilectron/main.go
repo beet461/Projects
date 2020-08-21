@@ -37,7 +37,11 @@ func main() {
 		var jsmsg string
 		m.Unmarshal(&jsmsg)
 		if jsmsg == "hello" {
-			return "world"
+			w.SendMessage("world", func(m *astilectron.EventMessage) {
+				var s string
+				m.Unmarshal(&s)
+				log.Printf("received %s\n", s)
+			})
 		}
 		return nil
 	})
