@@ -31,13 +31,16 @@ func main() {
 
 	w.OpenDevTools()
 
-	w.SendMessage("hello", func(m *astilectron.EventMessage) {
+	w.OnMessage(func(m *astilectron.EventMessage) interface{} {
 		// Unmarshal
 		var s string
 		m.Unmarshal(&s)
 
 		// Process message
-		log.Printf("received %s\n", s)
+		if s == "hello" {
+			return "world"
+		}
+		return nil
 	})
 
 	defer w.CloseDevTools()
