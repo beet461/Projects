@@ -6,4 +6,5 @@ function sendmsg() {
             console.log("received " + message)
         });
     })
+    console.log(69)
 }
