@@ -38,7 +38,14 @@ func main() {
 
 		// Process message
 		if s == "hello" {
-			return "world"
+			w.SendMessage("hello", func(m *astilectron.EventMessage) {
+				// Unmarshal
+				var s string
+				m.Unmarshal(&s)
+
+				// Process message
+				log.Printf("received %s\n", s)
+			})
 		}
 		return nil
 	})
