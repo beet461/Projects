@@ -16,9 +16,5 @@ function sendmsg() {
             }
         });
     })
-    document.addEventListener('astilectron-ready', function() {
-        // This will listen to messages sent by GO
-        
-    })
 }
 
