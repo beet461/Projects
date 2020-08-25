@@ -15,6 +15,10 @@ func webpack(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte(`{"message" : "hello"}`))
 }
 
+func enableCors(w *http.ResponseWriter) {
+	(*w).Header().Set("Access-Control-Allow-Origin", "*")
+}
+
 func main() {
 	r := mux.NewRouter()
 	api := r.PathPrefix("/api/v1").Subrouter()
