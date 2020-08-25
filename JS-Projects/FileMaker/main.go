@@ -11,7 +11,7 @@ import (
 func webpack(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("hello")
 	w.Header().Set("Content-Type", "application/json")
-	err = enableCors(&w)
+	out, err = enableCors(&w)
 	w.WriteHeader(http.StatusOK)
 	w.Write([]byte(`{"message" : "hello"}`))
 }
