@@ -9,7 +9,7 @@ import (
 )
 
 func webpack(w http.ResponseWriter, r *http.Request) {
-	out, err := exec.Command("ls").Output
+	out, err := exec.Command("ls").Output()
 	w.Header().Set("Content-Type", "application/json")
 	enableCors(&w)
 	w.WriteHeader(http.StatusOK)
