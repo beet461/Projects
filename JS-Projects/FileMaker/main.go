@@ -10,7 +10,7 @@ import (
 
 func webpack(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("hello")
-	w
+	w.Header().Set("Content-Type", "application/json")
 }
 
 func main() {
