@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	out, err := exec.Command("bash", "-c", "ls").Output()
+	out, err := exec.Command("cd", "..").Output()
 	if err != nil {
 		fmt.Println(err)
 	}
