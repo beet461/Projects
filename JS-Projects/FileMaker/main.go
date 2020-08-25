@@ -8,7 +8,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func webpack(w http.ResponseWriter, *http.Request) {
+func webpack(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("hello")
 	w
 }
