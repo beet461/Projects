@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	out, err := exec.Command("cmd", "Create-Item", "test.txt").Output()
+	out, err := exec.Command("Create-Item", "test.txt").Output()
 	if err != nil {
 		fmt.Println(err)
 	}
