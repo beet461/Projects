@@ -10,5 +10,6 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Sprint(out, err)
+	output := string(out[:])
+	fmt.Println(output)
 }
