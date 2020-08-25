@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 	"os/exec"
@@ -15,7 +14,7 @@ func webpack(w http.ResponseWriter, r *http.Request) {
 	enableCors(&w)
 	w.WriteHeader(http.StatusOK)
 	w.Write([]byte(`{"message" : "hello"}`))
-	fmt.Println(out, err)
+	//	fmt.Println(out, err)
 }
 
 func enableCors(w *http.ResponseWriter) {
