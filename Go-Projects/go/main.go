@@ -1,7 +1,7 @@
 package main
 
-import "fmt"
+import "os/exec"
 
 func main() {
-	fmt.Println("There doesn't seem to be anything in this file")
+	out, err := exec.Command("ls").Output()
 }
