@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	out, err := exec.Command("node", ".").Output()
+	out, err := exec.Command("npm", "test").Output()
 	if err != nil {
 		fmt.Println(err)
 	}
