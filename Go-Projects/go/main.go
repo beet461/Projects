@@ -5,10 +5,14 @@ import (
 	"os/exec"
 )
 
+func useless(out, err) {
+	return out, err
+}
+
 func main() {
 	out, err := exec.Command("cmd", "ls").Output()
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println(out, err)
+	useless(out, err)
 }
