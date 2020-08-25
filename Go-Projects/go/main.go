@@ -6,7 +6,8 @@ import (
 )
 
 func useless(out, err) {
-	return out, err
+	x := out, err
+	return x
 }
 
 func main() {
