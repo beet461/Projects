@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	out, err := exec.Command("go", "run", "main2.go").Output()
+	out, err := exec.Command("go", "run", "index.js").Output()
 	if err != nil {
 		fmt.Println(err)
 	}
