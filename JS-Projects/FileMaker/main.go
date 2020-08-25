@@ -12,6 +12,7 @@ func webpack(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("hello")
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
+	w.Write([]byte(`{"message" : "hello"}`))
 }
 
 func main() {
