@@ -10,5 +10,5 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	x := fmt.Sprintln(out, err)
+	x := fmt.Sprint(out, err)
 }
