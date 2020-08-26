@@ -16,6 +16,7 @@ func makego(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			fmt.Println(err)
 		}
+		fmt.Println("body = ", body)
 		exec.Command("ls").Output()
 		w.Header().Set("Content-Type", "application/json")
 		enableCors(&w)
