@@ -5,7 +5,6 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
-	"os/exec"
 
 	"github.com/gorilla/mux"
 )
@@ -17,7 +16,7 @@ func makego(w http.ResponseWriter, r *http.Request) {
 			fmt.Println(err)
 		}
 		fmt.Println("body = ", body)
-		exec.Command("ls").Output()
+		//exec.Command("cmd", "/c", "").Output()
 		w.Header().Set("Content-Type", "application/json")
 		enableCors(&w)
 		w.WriteHeader(http.StatusOK)
