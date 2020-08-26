@@ -1,4 +1,4 @@
-package main
+/*package main
 
 import (
 	"fmt"
@@ -25,7 +25,6 @@ func makego(w http.ResponseWriter, r *http.Request) {
 	//	fmt.Println(out, err)
 }
 
-/*
 type Post struct {
 	ID    string `json:"id"`
 	Title string `json:"title"`
@@ -43,7 +42,7 @@ func createPost(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(&post)
 	fmt.Println(posts)
 }
-*/
+
 func enableCors(w *http.ResponseWriter) {
 	(*w).Header().Set("Access-Control-Allow-Origin", "*")
 }
@@ -54,7 +53,7 @@ func main() {
 	api.HandleFunc("/makego", makego).Methods("POST")
 	log.Fatal(http.ListenAndServe(":8080", r))
 }
-
+*/
 /*
 package main
 
