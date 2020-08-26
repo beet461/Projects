@@ -11,8 +11,6 @@ func main() {
 	me, _ := user.Current()
 	if err != nil {
 		fmt.Println(err)
-	} else if out = "h" {
-		fmt.Print(" ")
 	}
 	//	output := string(out[:])
 	//	fmt.Println(output)
