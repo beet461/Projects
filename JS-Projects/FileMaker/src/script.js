@@ -7,7 +7,7 @@ var params = {
         "content-type" : "application/json"
     },
     body:data,
-    method = "POST"
+    method : "POST"
 }
 
 function makego() {
