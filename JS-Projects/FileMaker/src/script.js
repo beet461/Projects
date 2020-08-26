@@ -1,5 +1,6 @@
 var data = {
-    data1 : "data1",
+    "title" : "title",
+    "body" : "body",
 }
 
 var params = {
