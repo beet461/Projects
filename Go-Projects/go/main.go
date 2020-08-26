@@ -12,7 +12,7 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	//	output := string(out[:])
+	output := string(out[:])
 	//	fmt.Println(output)
 	fmt.Println(me)
 }
