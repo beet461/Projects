@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	out, err := exec.Command("dir").Output()
+	out, err := exec.Command("cmd", "dir").Output()
 	if err != nil {
 		fmt.Println(err)
 	}
