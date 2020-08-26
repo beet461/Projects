@@ -15,6 +15,4 @@ func main() {
 	output := string(out[:])
 	fmt.Println(output)
 	fmt.Println(me)
-	//fmt.Println(out)
-	//	fmt.Println(err)
 }
