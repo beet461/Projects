@@ -57,7 +57,7 @@ func main() {
 	api.HandleFunc("/makego", createPost).Methods("POST")
 	log.Fatal(http.ListenAndServe(":8080", r))
 }*/
-
+/*
 package main
 
 import (
@@ -143,3 +143,4 @@ func main() {
 	router.HandleFunc("/posts/{id}", deletePost).Methods("DELETE")
 	log.Fatal(http.ListenAndServe(":8080", router))
 }
+*/
