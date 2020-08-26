@@ -8,12 +8,11 @@ import (
 
 func main() {
 	out, err := exec.Command("cmd", "/c", "dir").Output()
-	me, m := user.Current()
+	me, _ := user.Current()
 	if err != nil {
 		fmt.Println(err)
 	}
 	output := string(out[:])
 	fmt.Println(output)
 	fmt.Println(me)
-	fmt.Println(m)
 }
