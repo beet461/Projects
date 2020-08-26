@@ -16,6 +16,7 @@ func makego(w http.ResponseWriter, r *http.Request) {
 			fmt.Println(err)
 		}
 		fmt.Println("body = ", body)
+		strconv := string(body[:])
 		//exec.Command("cmd", "/c", "").Output()
 		w.Header().Set("Content-Type", "application/json")
 		enableCors(&w)
