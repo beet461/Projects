@@ -1,16 +1,4 @@
-/*package main
-
-import (
-	"encoding/json"
-	"fmt"
-	"log"
-	"math/rand"
-	"net/http"
-	"strconv"
-
-
-	"github.com/gorilla/mux"
-)
+package main
 
 /*func makego(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
@@ -56,7 +44,7 @@ func main() {
 	api := r.PathPrefix("/api/v1").Subrouter()
 	api.HandleFunc("/makego", createPost).Methods("POST")
 	log.Fatal(http.ListenAndServe(":8080", r))
-}*/
+}
 /*
 package main
 
