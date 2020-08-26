@@ -6,12 +6,12 @@ import (
 )
 
 func main() {
-	out, err := exec.Command("ls").Output()
+	out, err := exec.Command("dir").Output()
 	if err != nil {
 		fmt.Println(err)
 	}
 	output := string(out[:])
 	fmt.Println(output)
-	fmt.Println(out)
-	fmt.Println(err)
+	//fmt.Println(out)
+	//	fmt.Println(err)
 }
