@@ -1,6 +1,18 @@
 package main
 
-/*func makego(w http.ResponseWriter, r *http.Request) {
+import (
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
+	"log"
+	"math/rand"
+	"net/http"
+	"strconv"
+
+	"github.com/gorilla/mux"
+)
+
+func makego(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
@@ -15,7 +27,6 @@ package main
 	}
 	//	fmt.Println(out, err)
 }
-
 
 type Post struct {
 	ID    string `json:"id"`
@@ -45,6 +56,7 @@ func main() {
 	api.HandleFunc("/makego", createPost).Methods("POST")
 	log.Fatal(http.ListenAndServe(":8080", r))
 }
+
 /*
 package main
 
