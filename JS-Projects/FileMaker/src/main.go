@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -12,6 +13,9 @@ import (
 func makego(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
 		body, err := ioutil.ReadAll(r.Body)
+		if err != nil {
+			fmt.Println(err)
+		}
 		exec.Command("ls").Output()
 		w.Header().Set("Content-Type", "application/json")
 		enableCors(&w)
