@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	out, err := exec.Command("cmd", "/c", "dir").Output()
+	out, err := exec.Command("cmd", "/c", "fsutil", "test.txt").Output()
 	me, _ := user.Current()
 	if err != nil {
 		fmt.Println(err)
