@@ -13,6 +13,6 @@ func main() {
 		fmt.Println(err)
 	}
 	output := string(out[:])
-	fmt.Sprint(output)
+	fmt.Println(output)
 	fmt.Println(me)
 }
