@@ -65,21 +65,29 @@ package main
 	"encoding/json"
 	"math/rand"
 	"strconv"
-  )type Post struct {
+  )
+  type Post struct {
 	ID string `json:"id"`
 	Title string `json:"title"`
 	Body string `json:"body"`
-  }var posts []Postfunc getPosts(w http.ResponseWriter, r *http.Request) {
+  }
+  var posts []Post
+  
+ func getPosts(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(posts)
-  }func createPost(w http.ResponseWriter, r *http.Request) {
+  }
+  
+  func createPost(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	var post Post
 	_ = json.NewDecoder(r.Body).Decode(&post)
 	post.ID = strconv.Itoa(rand.Intn(1000000))
 	posts = append(posts, post)
 	json.NewEncoder(w).Encode(&post)
-  }func getPost(w http.ResponseWriter, r *http.Request) {
+  }
+  
+  func getPost(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
 	for _, item := range posts {
