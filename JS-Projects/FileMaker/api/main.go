@@ -135,5 +135,5 @@ package main
 	router.HandleFunc("/posts/{id}", getPost).Methods("GET")
 	router.HandleFunc("/posts/{id}", updatePost).Methods("PUT")
 	router.HandleFunc("/posts/{id}", deletePost).Methods("DELETE")
-	log.Fatal(http.ListenAndServe(":8000", router))
+	log.Fatal(http.ListenAndServe(":8080", router))
   }
