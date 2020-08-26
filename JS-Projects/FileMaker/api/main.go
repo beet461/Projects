@@ -1,15 +1,16 @@
 package main
 
 import (
-	"fmt"
-	"io/ioutil"
+	"encoding/json"
 	"log"
+	"math/rand"
 	"net/http"
+	"strconv"
 
 	"github.com/gorilla/mux"
 )
 
-func makego(w http.ResponseWriter, r *http.Request) {
+/*func makego(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
@@ -24,6 +25,16 @@ func makego(w http.ResponseWriter, r *http.Request) {
 	}
 	//	fmt.Println(out, err)
 }
+*/
+
+func createPost(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	var post Post
+	_ = json.NewDecoder(r.Body).Decode(post)
+	post.ID = strconv.Itoa(rand.Intn(1000000))
+	posts = append(posts, post)
+	json.NewEncoder(w).Encode(&post)
+}
 
 func enableCors(w *http.ResponseWriter) {
 	(*w).Header().Set("Access-Control-Allow-Origin", "*")
@@ -32,6 +43,6 @@ func enableCors(w *http.ResponseWriter) {
 func main() {
 	r := mux.NewRouter()
 	api := r.PathPrefix("/api/v1").Subrouter()
-	api.HandleFunc("/makego", makego).Methods("POST")
+	api.HandleFunc("/makego", createPost).Methods("POST")
 	log.Fatal(http.ListenAndServe(":8080", r))
 }
