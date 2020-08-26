@@ -8,6 +8,7 @@ import (
 
 func main() {
 	path := "~/Desktop/"
+	out, err := exec.Command("cmd", "/c", "cd", path)
 	out, err := exec.Command("cmd", "/c", "fsutil", "file", "createnew", "test", "0").Output()
 	me, _ := user.Current()
 	if err != nil {
