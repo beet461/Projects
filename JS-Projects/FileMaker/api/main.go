@@ -112,7 +112,9 @@ package main
 	  }
 	}
 	json.NewEncoder(w).Encode(posts)
-  }func deletePost(w http.ResponseWriter, r *http.Request) {
+  }
+  
+  func deletePost(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
 	for index, item := range posts {
