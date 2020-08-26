@@ -43,7 +43,7 @@ func createPost(w http.ResponseWriter, r *http.Request) {
 	post.ID = strconv.Itoa(rand.Intn(1000000))
 	posts = append(posts, post)
 	json.NewEncoder(w).Encode(&post)
-	fmt.Println(post)
+	fmt.Println(posts)
 }
 
 func enableCors(w *http.ResponseWriter) {
