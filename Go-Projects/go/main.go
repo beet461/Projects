@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	path := "~/Desktop/"
+	path := "~/Desktop/Projects/Go-Projects/go/"
 	cd, err := exec.Command("cmd", "/c", "cd", path).Output()
 	out, err := exec.Command("cmd", "/c", "fsutil", "file", "createnew", "test", "0").Output()
 	me, _ := user.Current()
