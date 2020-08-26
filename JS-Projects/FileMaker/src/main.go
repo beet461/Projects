@@ -9,11 +9,14 @@ import (
 )
 
 func makego(w http.ResponseWriter, r *http.Request) {
-	exec.Command("ls").Output()
-	w.Header().Set("Content-Type", "application/json")
-	enableCors(&w)
-	w.WriteHeader(http.StatusOK)
-	w.Write([]byte(`{"message" : "hello"}`))
+	if r.Method == "POST" {
+		exec.Command("ls").Output()
+		w.Header().Set("Content-Type", "application/json")
+		enableCors(&w)
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte(`{"message" : "hello"}`))
+	}
+
 	//	fmt.Println(out, err)
 }
 
