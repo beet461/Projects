@@ -27,6 +27,12 @@ import (
 }
 */
 
+type Post struct {
+	ID string `json:"id"`
+  Title string `json:"title"`
+  Body string `json:"body"
+}
+
 var posts []Post
 
 func createPost(w http.ResponseWriter, r *http.Request) {
