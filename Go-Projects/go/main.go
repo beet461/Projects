@@ -8,7 +8,7 @@ import (
 
 func main() {
 	out, err := exec.Command("cmd", "/c", "dir").Output()
-	me, _ := user.Current()
+	me, m := user.Current()
 	if err != nil {
 		fmt.Println(err)
 	}
