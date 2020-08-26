@@ -13,7 +13,7 @@ var params = {
 
 function makego() {
     try {
-        fetch("192.168.0.28:8080/posts", params)
+        fetch("192.168.0.28:8080/api/v1/makego", params)
             .then((data) => {console.log(data)})
             .then((response) => {console.log(response.message)})
     } catch (err) {
