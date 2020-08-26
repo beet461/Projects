@@ -8,4 +8,6 @@ function test() {
     }
 }
 
-
+function makego() {
+    
+}
