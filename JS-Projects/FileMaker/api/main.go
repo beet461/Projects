@@ -51,7 +51,7 @@ func enableCors(w *http.ResponseWriter) {
 func main() {
 	r := mux.NewRouter()
 	api := r.PathPrefix("/api/v1").Subrouter()
-	api.HandleFunc("/makego", createPost).Methods("POST")
+	api.HandleFunc("/makego", makego).Methods("POST")
 	log.Fatal(http.ListenAndServe(":8080", r))
 }
 
