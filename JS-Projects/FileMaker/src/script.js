@@ -13,16 +13,16 @@ var params = {
 */
 
 function makego() {
-    axios.post('localhost:8080/api/v1/makego', {
-        firstName: 'Fred',
-        lastName: 'Flintstone'
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+   
 }
 
-
+axios.post('localhost:8080/api/v1/makego', {
+    firstName: 'Fred',
+    lastName: 'Flintstone'
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
