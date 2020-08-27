@@ -12,13 +12,22 @@ var params = {
 }
 
 function makego() {
-    try {
-        fetch("192.168.0.28:8080/api/v1/makego", params)
-            .then((data) => {console.log(data)})
-            .then((response) => {console.log("this is the response")})
-    } catch (err) {
-        console.log(err)
-    }
+    var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+var raw = JSON.stringify({"date":"09/1293/01","body":"idk"});
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("http://localhost:8080/api/v1/makego", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
 }
 
 
