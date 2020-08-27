@@ -17,8 +17,6 @@ func main() {
 		fmt.Println(err)
 	}
 	output := string(out[:])
-	//cdout := string(cd[:])
-	//fmt.Println(cdout)
 	fmt.Println(output)
 	fmt.Println(me)
 	fmt.Println("Would you like to delete file? (yes or no)")
