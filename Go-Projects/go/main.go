@@ -11,7 +11,7 @@ func main() {
 	var yesno string
 	path := "~/Desktop/Projects/Go-Projects/go/"
 	exec.Command("cmd", "/c", "cd", path).Output()
-	exec.Command("cmd", "/c", "fsutil", "file", "createnew", "test", "0")
+	exec.Command("cmd", "/c", "fsutil", "file", "createnew", "test", "0").Output()
 	me, _ := user.Current()
 	fmt.Println(me)
 	fmt.Println("Would you like to delete file? (yes or no)")
