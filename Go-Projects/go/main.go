@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	path := "~/Desktop/Projects/Go-Projects/go/"
+	//path := "~/Desktop/Projects/Go-Projects/go/"
 	//	exec.Command("cmd", "/c", "cd", path).Output()
 	//	out, err := exec.Command("cmd", "/c", "fsutil", "file", "createnew", "test", "0").Output()
 	out, err := exec.Command("git", "ls").Output()
