@@ -16,8 +16,6 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	output := string(out[:])
-	fmt.Println(output)
 	fmt.Println(me)
 	fmt.Println("Would you like to delete file? (yes or no)")
 	fmt.Scan(&yesno)
