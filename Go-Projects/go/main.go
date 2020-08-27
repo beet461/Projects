@@ -16,6 +16,7 @@ func main() {
 	fmt.Println(me)
 	fmt.Println("Would you like to delete file? (yes or no)")
 	fmt.Scan(&yesno)
+	exec.Command("cmd", "/c", "del", "test")
 	if yesno == "yes" {
 		exec.Command("cmd", "/c", "del", "test")
 	} else {
