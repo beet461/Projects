@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+	var yesno string
 	path := "~/Desktop/Projects/Go-Projects/go/"
 	exec.Command("cmd", "/c", "cd", path).Output()
 	out, err := exec.Command("cmd", "/c", "fsutil", "file", "createnew", "test", "0").Output()
@@ -19,4 +20,7 @@ func main() {
 	//fmt.Println(cdout)
 	fmt.Println(output)
 	fmt.Println(me)
+	fmt.Println("Would you like to delete file?")
+	fmt.Scan(&yesno)
+	if yesno = "yes" || "y" || "Y"
 }
