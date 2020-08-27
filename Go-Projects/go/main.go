@@ -22,5 +22,7 @@ func main() {
 	fmt.Println(me)
 	fmt.Println("Would you like to delete file?")
 	fmt.Scan(&yesno)
-	if yesno = "yes" || "y" || "Y"
+	if yesno = "yes" || "y" || "Y" {
+		
+	}
 }
