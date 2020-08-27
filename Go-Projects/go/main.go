@@ -3,12 +3,17 @@ package main
 import (
 	"fmt"
 	"os"
+	"os/exec"
 )
 
 func make() {
 	var path string
+	var filename string
 	fmt.Println("Please type in your path , e.g. ~/Desktop/...")
 	fmt.Scan(&path)
+	fmt.Println("And the filename, e.g. file.txt")
+	fmt.Scan(&filename)
+	exec.Command("cmd")
 }
 
 func del() {
