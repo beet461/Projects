@@ -7,10 +7,9 @@ import (
 )
 
 func main() {
-	//path := "~/Desktop/Projects/Go-Projects/go/"
-	//	exec.Command("cmd", "/c", "cd", path).Output()
-	//	out, err := exec.Command("cmd", "/c", "fsutil", "file", "createnew", "test", "0").Output()
-	out, err := exec.Command("git", "bash", "ls").Output()
+	path := "~/Desktop/Projects/Go-Projects/go/"
+	exec.Command("cmd", "/c", "cd", path).Output()
+	out, err := exec.Command("cmd", "/c", "fsutil", "file", "createnew", "test", "0").Output()
 	me, _ := user.Current()
 	if err != nil {
 		fmt.Println(err)
