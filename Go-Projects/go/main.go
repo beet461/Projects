@@ -5,6 +5,18 @@ import (
 	"os"
 )
 
+func make() {
+
+}
+
+func del() {
+
+}
+
+func cd() {
+
+}
+
 func main() {
 	var option string
 	fmt.Println("What do you want to do?")
