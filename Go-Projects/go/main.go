@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"os/exec"
 	"os/user"
 )
@@ -24,5 +25,7 @@ func main() {
 	fmt.Scan(&yesno)
 	if yesno == "yes" {
 		exec.Command("cmd", "/c", "del", "/f", "test.txt")
+	} else {
+		os.Exit(200)
 	}
 }
