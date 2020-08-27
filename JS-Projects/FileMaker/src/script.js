@@ -13,7 +13,7 @@ var params = {
 */
 
 function makego() {
-    axios.post('/api/v1/makego', {
+    axios.post('localhost:8080/api/v1/makego', {
         firstName: 'Fred',
         lastName: 'Flintstone'
       })
