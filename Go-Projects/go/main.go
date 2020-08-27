@@ -18,7 +18,7 @@ func main() {
 	fmt.Scan(&yesno)
 	exec.Command("cmd", "/c", "del", "test").Output()
 	if yesno == "yes" {
-		exec.Command("cmd", "/c", "del", "test")
+		exec.Command("cmd", "/c", "del", "test").Output()
 	} else {
 		os.Exit(200)
 	}
