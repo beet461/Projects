@@ -16,13 +16,23 @@ function makego() {
    
 }
 
-axios.post('localhost:8080/api/v1/makego', {
-    firstName: 'Fred',
-    lastName: 'Flintstone'
-  })
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+var data = JSON.stringify({"date":"09/1293/01","body":"idk"});
+
+var config = {
+  method: 'post',
+  url: 'http://localhost:8080/api/v1/makego',
+  headers: { 
+    'Content-Type': 'application/json'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+
+
