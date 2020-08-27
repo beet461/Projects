@@ -22,9 +22,7 @@ func main() {
 		if option == "no" {
 			main()
 		} else {
-			var one int
-			one = "bye"
-			os.Exit(one)
+			os.Exit(410)
 		}
 	}
 }
