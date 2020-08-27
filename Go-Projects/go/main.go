@@ -13,9 +13,6 @@ func main() {
 	exec.Command("cmd", "/c", "cd", path).Output()
 	exec.Command("cmd", "/c", "fsutil", "file", "createnew", "test", "0").Output()
 	me, _ := user.Current()
-	if err != nil {
-		fmt.Println(err)
-	}
 	fmt.Println(me)
 	fmt.Println("Would you like to delete file? (yes or no)")
 	fmt.Scan(&yesno)
