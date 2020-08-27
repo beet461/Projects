@@ -1,4 +1,4 @@
-var data = {
+/*var data = {
     "title" : "title",
     "body" : "body",
 }
@@ -10,15 +10,19 @@ var params = {
     body:JSON.stringify(data),
     method:"POST"
 }
+*/
 
 function makego() {
-    try {
-        fetch("192.168.0.28:8080/api/v1/makego", params)
-            .then((data) => {console.log(data)})
-            .then((response) => {console.log("this is the response")})
-    } catch (err) {
-        console.log(err)
-    }
+    axios.post('/api/v1/makego', {
+        firstName: 'Fred',
+        lastName: 'Flintstone'
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 }
 
 
