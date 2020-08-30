@@ -30,7 +30,7 @@ func makego(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte(`{"message" : "hello"}`))
 		var userpass data
 		in := json.Unmarshal([]byte(strconv), &userpass)
-		fmt.Println(userpass.username)
+		fmt.Println(in)
 	}
 	//	fmt.Println(out, err)
 }
