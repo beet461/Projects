@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -27,6 +28,7 @@ func makego(w http.ResponseWriter, r *http.Request) {
 		enableCors(&w)
 		w.WriteHeader(http.StatusOK)
 		w.Write([]byte(`{"message" : "hello"}`))
+		json.Unmarshal(in, &data)
 	}
 	//	fmt.Println(out, err)
 }
