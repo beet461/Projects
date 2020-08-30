@@ -10,6 +10,11 @@ import (
 	"github.com/gorilla/mux"
 )
 
+type data struct {
+	username string
+	password string
+}
+
 func makego(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
 		body, err := ioutil.ReadAll(r.Body)
@@ -23,9 +28,9 @@ func makego(w http.ResponseWriter, r *http.Request) {
 		enableCors(&w)
 		w.WriteHeader(http.StatusOK)
 		w.Write([]byte(`{"message" : "hello"}`))
-		var data string
-		json.Unmarshal([]byte(body), &data)
-		fmt.Println(data.username)
+		var userpass data
+		json.Unmarshal([]byte(body), &userpass)
+		fmt.Println(userpass)
 	}
 	//	fmt.Println(out, err)
 }
