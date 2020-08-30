@@ -29,8 +29,8 @@ func main() {
 		panic(err)
 	}
 	sqlStatement := `
-INSERT INTO users (age, email, first_name, last_name)
-VALUES (30, 'jon@calhoun.io', 'Jonathan', 'Calhoun')`
+INSERT INTO api_keys (user, api_key)
+VALUES ('TeSt', 'keytimeemeememem')`
 	_, err = db.Exec(sqlStatement)
 	if err != nil {
 		panic(err)
