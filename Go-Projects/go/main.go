@@ -8,6 +8,7 @@ import (
 )
 
 func main() {
+	defer db.Close()
 	const (
 		host     = "localhost"
 		port     = 5432
@@ -23,14 +24,14 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	defer db.Close()
+
 	err = db.Ping()
 	if err != nil {
 		panic(err)
 	}
 	sqlStatement := `
-INSERT INTO api_keys (user, api_key)
-VALUES ('TeSt', 'keytimeemeememem')`
+	INSERT INTO api_keys (user, api_key)
+	VALUES ('TeSt', 'keytimeemeememem');`
 	_, err = db.Exec(sqlStatement)
 	if err != nil {
 		panic(err)
