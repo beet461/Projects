@@ -28,7 +28,8 @@ func makego(w http.ResponseWriter, r *http.Request) {
 		enableCors(&w)
 		w.WriteHeader(http.StatusOK)
 		w.Write([]byte(`{"message" : "hello"}`))
-		json.Unmarshal(in, &data)
+
+		in := json.Unmarshal(body, &data)
 	}
 	//	fmt.Println(out, err)
 }
