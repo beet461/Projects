@@ -3,11 +3,14 @@ package main
 import (
 	"database/sql"
 	"fmt"
+	"math/rand"
+	"time"
 
 	_ "github.com/lib/pq"
 )
 
 func main() {
+	rand.Seed(time.Now().UnixNano())
 	const (
 		host     = "localhost"
 		port     = 5432
@@ -29,9 +32,10 @@ func main() {
 		panic(err)
 	}
 	username := "yeEYeeyyEryr"
+	key := rand.Intn(100000)
 	sqlStatement := fmt.Sprintf(`
 	INSERT INTO api_keys (username, api_key)
-	VALUES ('%v', 'keytimeemeememem');`, username)
+	VALUES ('%v', '%v');`, username, key)
 	_, err = db.Exec(sqlStatement)
 	if err != nil {
 		panic(err)
