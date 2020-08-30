@@ -31,7 +31,7 @@ func main() {
 	username := "yeEYeeyyEryr"
 	sqlStatement := `
 	INSERT INTO api_keys (username, api_key)
-	VALUES ('${username}', 'keytimeemeememem');`
+	VALUES ('%v', 'keytimeemeememem');`, username
 	_, err = db.Exec(sqlStatement)
 	if err != nil {
 		panic(err)
