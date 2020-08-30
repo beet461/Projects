@@ -29,9 +29,9 @@ func main() {
 		panic(err)
 	}
 	username := "yeEYeeyyEryr"
-	sqlStatement := `
+	sqlStatement := fmt.Sprintf(`
 	INSERT INTO api_keys (username, api_key)
-	VALUES ('%v', 'keytimeemeememem');`, username
+	VALUES ('%v', 'keytimeemeememem');`, username)
 	_, err = db.Exec(sqlStatement)
 	if err != nil {
 		panic(err)
