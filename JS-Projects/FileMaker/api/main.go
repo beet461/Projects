@@ -10,9 +10,9 @@ import (
 	"github.com/gorilla/mux"
 )
 
-type data struct {
-	username string
-	password string
+type Data struct {
+	Username string
+	Password string
 }
 
 func makego(w http.ResponseWriter, r *http.Request) {
@@ -29,9 +29,9 @@ func makego(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 		w.Write([]byte(`{"username" : "hello", "password":"helloo" }`))
 		json1 := `{"username" : "hello", "password":"helloo" }`
-		var userpass data
+		var userpass Data
 		json.Unmarshal([]byte(json1), &userpass)
-		fmt.Println(userpass.username)
+		fmt.Println(userpass.Username)
 	}
 	//	fmt.Println(out, err)
 }
