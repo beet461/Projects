@@ -28,7 +28,7 @@ func makego(w http.ResponseWriter, r *http.Request) {
 		enableCors(&w)
 		w.WriteHeader(http.StatusOK)
 		w.Write([]byte(`{"username" : "hello", "password":"helloo" }`))
-		json1 := `{"message" : "hello"}`
+		json1 := `{"username" : "hello", "password":"helloo" }`
 		var userpass data
 		json.Unmarshal([]byte(json1), &userpass)
 		fmt.Println(userpass)
