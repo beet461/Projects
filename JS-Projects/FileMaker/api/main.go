@@ -34,7 +34,6 @@ func makego(w http.ResponseWriter, r *http.Request) {
 		json.Unmarshal([]byte(body), &data)
 		fmt.Println(data.Username)
 	}
-	//	fmt.Println(out, err)
 }
 
 func enableCors(w *http.ResponseWriter) {
