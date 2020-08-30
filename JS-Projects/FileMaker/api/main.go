@@ -9,6 +9,11 @@ import (
 	"github.com/gorilla/mux"
 )
 
+type data struct {
+	username string `json:"username"`
+	password string `json:"password"`
+}
+
 func makego(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
 		body, err := ioutil.ReadAll(r.Body)
@@ -18,7 +23,6 @@ func makego(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("body = ", body)
 		strconv := string(body[:])
 		fmt.Println("strconv = ", strconv)
-		fmt.Println("Username = ", strconv.username)
 		w.Header().Set("Content-Type", "application/json")
 		enableCors(&w)
 		w.WriteHeader(http.StatusOK)
