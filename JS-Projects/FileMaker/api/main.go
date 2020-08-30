@@ -21,6 +21,7 @@ func makego(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			fmt.Println(err)
 		}
+
 		w.Header().Set("Content-Type", "application/json")
 		enableCors(&w)
 		w.WriteHeader(http.StatusOK)
@@ -28,9 +29,10 @@ func makego(w http.ResponseWriter, r *http.Request) {
 			"username": "hello",
 			"password": "helloo"
 		}`))
+
 		var data Data
 		json.Unmarshal([]byte(body), &data)
-		fmt.Println(userpass.Username)
+		fmt.Println(data.Username)
 	}
 	//	fmt.Println(out, err)
 }
