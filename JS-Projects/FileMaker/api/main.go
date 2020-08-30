@@ -18,7 +18,7 @@ func makego(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("body = ", body)
 		strconv := string(body[:])
 		fmt.Println("strconv = ", strconv)
-		fmt.Println("Username = ", body.username)
+		fmt.Println("Username = ", strconv.username)
 		w.Header().Set("Content-Type", "application/json")
 		enableCors(&w)
 		w.WriteHeader(http.StatusOK)
