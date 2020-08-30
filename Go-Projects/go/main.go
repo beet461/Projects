@@ -13,7 +13,12 @@ func make() {
 	fmt.Scan(&path)
 	fmt.Println("And the filename, e.g. file.txt")
 	fmt.Scan(&filename)
-	exec.Command("cmd")
+	out, err := exec.Command("git", "touch", "text.txt").Output()
+	if err != nil {
+		fmt.Println(err)
+	}
+	output := out[:]
+	fmt.Println(output)
 }
 
 func del() {
