@@ -33,6 +33,7 @@ func main() {
 	}
 	username := "yeEYeeyyEryr"
 	key := rand.Intn(100000)
+	fmt.Println(username, key)
 	sqlStatement := fmt.Sprintf(`
 	INSERT INTO api_keys (username, api_key)
 	VALUES ('%v', '%v');`, username, key)
