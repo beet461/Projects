@@ -3,14 +3,15 @@ package main
 import (
 	"database/sql"
 	"fmt"
-	"math/rand"
-	"time"
 
+	key "github.com/beet461/Importable/KeyGen"
 	_ "github.com/lib/pq"
 )
 
 func main() {
-	rand.Seed(time.Now().UnixNano())
+	username := "yeEYeeyyEryr"
+	randkey := key.Gen()
+
 	const (
 		host     = "localhost"
 		port     = 5432
@@ -18,6 +19,7 @@ func main() {
 		password = "shashi3969"
 		dbname   = "FileMaker"
 	)
+
 	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+
 		"password=%s dbname=%s sslmode=disable",
 		host, port, user, password, dbname)
@@ -26,17 +28,20 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
 	defer db.Close()
+
 	err = db.Ping()
 	if err != nil {
 		panic(err)
 	}
-	username := "yeEYeeyyEryr"
-	key := rand.Intn(100000)
-	fmt.Println(username, key)
+
+	fmt.Println(username, randkey)
+
 	sqlStatement := fmt.Sprintf(`
 	INSERT INTO api_keys (username, api_key)
-	VALUES ('%v', '%v');`, username, key)
+	VALUES ('%v', '%v');`, username, randkey)
+
 	_, err = db.Exec(sqlStatement)
 	if err != nil {
 		panic(err)

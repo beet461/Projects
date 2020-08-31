@@ -30,6 +30,7 @@ func makego(w http.ResponseWriter, r *http.Request) {
 		var data Data
 		json.Unmarshal([]byte(body), &data)
 		fmt.Println(data.Username)
+
 	}
 }
 
@@ -38,6 +39,7 @@ func enableCors(w *http.ResponseWriter) {
 }
 
 func main() {
+
 	r := mux.NewRouter()
 	api := r.PathPrefix("/api/v1").Subrouter()
 	api.HandleFunc("/makego", makego).Methods("POST")
