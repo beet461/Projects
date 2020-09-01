@@ -112,5 +112,6 @@ func main() {
 		AllowedOrigins:   []string{"http://localhost:8000"},
 		AllowCredentials: true,
 	})
+	handler := c.Handler(r)
 	log.Fatal(http.ListenAndServe(":8080", r))
 }
