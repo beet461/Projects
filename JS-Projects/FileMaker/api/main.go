@@ -109,7 +109,7 @@ func main() {
 	api := r.PathPrefix("/api/v1").Subrouter()
 	api.HandleFunc("/makego", makego).Methods("POST")
 	c := cors.New(cors.Options{
-		AllowedOrigins:   []string{"http://localhost:8000"},
+		AllowedOrigins:   []string{"http://localhost:8081"},
 		AllowCredentials: true,
 	})
 	handler := c.Handler(r)
