@@ -20,7 +20,7 @@ type Data struct {
 }
 
 func makego(w http.ResponseWriter, r *http.Request) {
-	fmt.Println(data.Username)
+	fmt.Println(Data.Username)
 	if r.Method == "POST" {
 		//get json input
 
