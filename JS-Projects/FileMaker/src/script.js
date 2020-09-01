@@ -1,5 +1,7 @@
 function register() {
   console.log(document.getElementById("email").value)
+  console.log(document.getElementById("usrnm").value)
+  console.log(document.getElementById("pswrd").value)
 }
 
 var myHeaders = new Headers();
