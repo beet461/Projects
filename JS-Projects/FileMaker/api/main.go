@@ -13,6 +13,7 @@ import (
 	_ "github.com/lib/pq"
 )
 
+//hello
 type Data struct {
 	Username string
 	Password string
