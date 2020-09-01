@@ -51,12 +51,12 @@ func makego(w http.ResponseWriter, r *http.Request) {
 
 		var data Data
 		json.Unmarshal([]byte(body), &data)
-		if data.Username == "nil" {
+		if data.Username == "" {
 			fmt.Println("Username is nil")
 		} else if data.Password == "" {
 			fmt.Println("Password is nil")
 		} else if data.Email == "" {
-
+			fmt.Println("Email is nil")
 		} else {
 			fmt.Println("Everything is valid")
 		}
@@ -65,9 +65,6 @@ func makego(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("Email =", data.Email)
 
 		//db connect
-
-		username := data.Username
-		randkey := key.Gen()
 
 		const (
 			host     = "localhost"
@@ -93,13 +90,9 @@ func makego(w http.ResponseWriter, r *http.Request) {
 			panic(err)
 		}
 
-		fmt.Println("Username =", username, "key =", randkey)
-		fmt.Println(" ")
-
 		sqlStatement := fmt.Sprintf(`
-	INSERT INTO api_keys (username, api_key)
-	VALUES ('%v', '%v');
-	TRUNCATE TABLE api_keys`, data.Username, randkey)
+	INSERT INTO reg_data (email, username, password, userkey)
+	VALUES ('%v', '%v', '%v', '%v');`, data.Email, data.Username, data.Password, key.Gen())
 
 		_, err = db.Exec(sqlStatement)
 		if err != nil {
