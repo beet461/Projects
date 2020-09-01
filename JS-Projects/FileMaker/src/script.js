@@ -16,7 +16,7 @@ function register() {
     Password : pswrd
   }
 
-  var raw = JSON.stringify({input});
+  var raw = JSON.stringify({});
 
   var requestOptions = {
     method: 'POST',
