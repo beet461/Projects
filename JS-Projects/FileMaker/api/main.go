@@ -30,7 +30,7 @@ func enableCors(w *http.ResponseWriter) {
 }
 
 func makego(w http.ResponseWriter, r *http.Request) {
-	setupResponse(&w)
+	setupResponse(&w, req)
 	if r.Method == "POST" {
 		//get json input
 
