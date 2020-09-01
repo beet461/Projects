@@ -30,7 +30,6 @@ func makego(w http.ResponseWriter, r *http.Request) {
 		}
 
 		w.Header().Set("Content-Type", "application/json")
-		enableCors(&w)
 		w.WriteHeader(http.StatusOK)
 		w.Write([]byte(`{"username": "hello", "password": "helloo"}`))
 
@@ -88,10 +87,6 @@ func makego(w http.ResponseWriter, r *http.Request) {
 			panic(err)
 		}
 	}
-}
-
-func enableCors(w *http.ResponseWriter) {
-	(*w).Header().Set("Access-Control-Allow-Origin", "*")
 }
 
 func main() {
