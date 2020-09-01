@@ -19,7 +19,8 @@ type Data struct {
 	Password string
 }
 
-func makego(w http.ResponseWriter, r *http.Request) {)
+func makego(w http.ResponseWriter, r *http.Request) {
+
 	if r.Method == "POST" {
 		//get json input
 
