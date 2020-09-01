@@ -5,7 +5,6 @@ function register() {
 }
 
 var myHeaders = new Headers();
-myHeaders.append("Access-Control-Allow-Origin", "*")
 myHeaders.append("Content-Type", "application/json");
 
 var raw = JSON.stringify({"username":"heeeeeeellllllllo","password":"heeeeeeelllllllloo"});
