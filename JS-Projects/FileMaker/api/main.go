@@ -16,6 +16,7 @@ import (
 
 //Data ..
 type Data struct {
+	Email    string
 	Username string
 	Password string
 }
@@ -46,7 +47,7 @@ func makego(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		enableCors(&w)
 		w.WriteHeader(http.StatusOK)
-		w.Write([]byte(`{"username": "hello", "password": "helloo"}`))
+		w.Write([]byte(`{"success":"true"}`))
 
 		var data Data
 		json.Unmarshal([]byte(body), &data)
@@ -54,11 +55,14 @@ func makego(w http.ResponseWriter, r *http.Request) {
 			fmt.Println("Username is nil")
 		} else if data.Password == "" {
 			fmt.Println("Password is nil")
+		} else if data.Email == "" {
+
 		} else {
 			fmt.Println("Everything is valid")
 		}
 		fmt.Println("Username =", data.Username)
 		fmt.Println("Password =", data.Password)
+		fmt.Println("Email =", data.Email)
 
 		//db connect
 
