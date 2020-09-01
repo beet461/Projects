@@ -105,12 +105,12 @@ func makego(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	r := mux.NewRouter()
+	api := r.PathPrefix("/api/v1").Subrouter()
+	api.HandleFunc("/makego", makego).Methods("POST")
 	c := cors.New(cors.Options{
 		AllowedOrigins:   []string{"http://localhost:8000"},
 		AllowCredentials: true,
 	})
-	r := mux.NewRouter()
-	api := r.PathPrefix("/api/v1").Subrouter()
-	api.HandleFunc("/makego", makego).Methods("POST")
 	log.Fatal(http.ListenAndServe(":8080", r))
 }
