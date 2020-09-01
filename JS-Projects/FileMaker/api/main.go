@@ -75,7 +75,7 @@ func makego(w http.ResponseWriter, r *http.Request) {
 			panic(err)
 		}
 
-		fmt.Println("Username =", username, "key = ", randkey)
+		fmt.Println("Username =", username, "key =", randkey, "\n")
 
 		sqlStatement := fmt.Sprintf(`
 	INSERT INTO api_keys (username, api_key)
