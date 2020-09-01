@@ -11,6 +11,7 @@ import (
 	key "github.com/beet461/Importable/KeyGen"
 	"github.com/gorilla/mux"
 	_ "github.com/lib/pq"
+	"github.com/rs/cors"
 )
 
 //Data ..
@@ -104,7 +105,10 @@ func makego(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-
+	c := cors.New(cors.Options{
+		AllowedOrigins:   []string{"http://localhost:8000"},
+		AllowCredentials: true,
+	})
 	r := mux.NewRouter()
 	api := r.PathPrefix("/api/v1").Subrouter()
 	api.HandleFunc("/makego", makego).Methods("POST")
