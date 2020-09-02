@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import "../node_modules/bulma/bulma.sass";
+
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 //own
@@ -8,3 +8,5 @@ $mybackgroundcolor: #73B4F1;
 //predefined
 $body-background-color: $mybackgroundcolor;
 $family-sans-serif: "Nunito", sans-serif;
+
+@import "../node_modules/bulma/bulma.sass";
