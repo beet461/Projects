@@ -32,3 +32,8 @@ function register() {
 
 }
 
+
+function input_check() {
+  document.getElementById("email").className = "input is-rounded is-danger";
+  console.log("ooooh")
+}
