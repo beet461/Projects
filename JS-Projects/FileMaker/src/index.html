@@ -7,18 +7,31 @@
         <link rel="stylesheet" type="text/css" href="node_modules/bulma/css/bulma.css">
     </head>
     <body>
-        <p>Email</p>
-        <input type="text" id="email">
-        <p>Username</p>
-        <input type="text" id="usrnm">
-        <p>Password</p>
-        <input type="text" id="pswrd">
+        <div class="form">
 
-        <button onclick="register()">Register</button>
+            <div class="field">
+                <div class="control">
+                    <p>Email</p>
+                    <input class="input is-primary is-rounded" type="text" id="email" placeholder="example@gmail.com">
+                </div>
+            </div> 
 
+            <div class="field">
+                <div class="control">
+                    <p>Username</p>
+                    <input class="input is-primary is-rounded" type="text" id="usrnm" placeholder="JohnDoe123">
+                </div>
+            </div>
 
+            <div class="field">
+                <div class="control">
+                    <p>Password</p>
+                    <input class="input is-primary is-rounded" type="password" id="pswrd" placeholder="password123">
+                </div>
+            </div> 
 
-        <script src="script.js"></script>
-        
+            <button onclick="register()">Register</button>
+        </div>
+        <script src="script.js"></script>   
     </body>
 </html>
