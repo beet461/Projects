@@ -2,8 +2,10 @@
 
 body {
     font-family: "Nunito", sans-serif;
+    background-color: palegoldenrod;
 }
 
-#pswrd {
+
+input {
     background-color: powderblue;
 }
