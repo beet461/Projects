@@ -62,7 +62,7 @@ func makego(w http.ResponseWriter, r *http.Request) {
 		}
 		fmt.Println("Username =", data.Username)
 		fmt.Println("Password =", data.Password)
-		fmt.Println("Email =", data.Email, "\n")
+		fmt.Println("Email =", data.Email, "\n", "")
 
 		//db connect
 
