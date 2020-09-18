@@ -62,7 +62,7 @@ function register() {
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
 
-    window.location.assign("../OtpCheck")
+    window.location.assign("../OtpCheck/index.html")
 
 }
 
