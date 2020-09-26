@@ -1,15 +1,17 @@
-.navbar {
-    display: flex;
-    flex-direction: row;
-    background-color: darkgreen;
+.bar {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 5000px;
+    height: 100px;
+    background: url(logo.png);
 }
 
-.white {
+
+.lotext {
+
     color: white;
-}
-
-.item {
-    height: 50px;
-    width: 50px;
-    background: url(background.jpg);
+    height: 75px;
+    width: 75px;
+    background: url(logo.png);
 }
