@@ -1,0 +1,15 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    background-color: darkgreen;
+}
+
+.white {
+    color: white;
+}
+
+.item {
+    height: 50px;
+    width: 50px;
+    background: url(background.jpg);
+}
