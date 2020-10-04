@@ -2,16 +2,17 @@
     position: fixed;
     left: 0px;
     top: 0px;
-    width: 5000px;
+    width: 100%;
     height: 100px;
-    background: url(logo.png);
+    background-color: #14281D;
+}
+
+.logo {
+    top: 0px;
+    left: 0px;
 }
 
 
-.lotext {
-
-    color: white;
-    height: 75px;
-    width: 75px;
-    background: url(logo.png);
+html {
+    background-color: #41aea9;
 }
