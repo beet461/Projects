@@ -10,7 +10,7 @@
     height: 110%;
     filter: blur(10px);
     /* Center and scale the image nicely */
-    background-image: url("background.jpg");
+    background-image: url("../cssdesign/css/background.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
