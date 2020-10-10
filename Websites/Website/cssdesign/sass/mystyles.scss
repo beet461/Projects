@@ -35,6 +35,12 @@ input {
     left: 0px;
 }
 
+.unblur {
+    animation-name: textblur;
+    animation-duration: 3s;
+}
+
+
 
 @keyframes bg-blur {
     from {
