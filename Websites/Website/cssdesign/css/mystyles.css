@@ -27,6 +27,9 @@ input {
   animation-name: textblur;
   animation-duration: 3s; }
 
+.invisible {
+  display: none; }
+
 @keyframes bg-blur {
   from {
     filter: blur(0px); }
