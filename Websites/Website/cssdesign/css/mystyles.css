@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+input {
+  background-color: #d3cb80; }
+
 html {
   background-image: url(background.jpg); }
 
@@ -7,6 +10,23 @@ html {
 
 .green-text {
   color: green; }
+
+@keyframes bg-blur {
+  from {
+    filter: blur(0px); }
+  to {
+    filter: blur(10px); } }
+
+@keyframes textblur {
+  from {
+    opacity: 0%; }
+  to {
+    opacity: 100%; } }
+
+.formatting {
+  margin-top: 15%;
+  margin-right: 2%;
+  margin-left: 1%; }
 
 input:hover {
   opacity: 1.0; }

@@ -1,3 +1,13 @@
+async function unblur() {
+    window.setTimeout(function() {
+    document.getElementById("everything").className = "form formatting unblur"
+    console.log(document.getElementById("everything").className)
+    }, 2000)
+    
+}
+
+unblur()
+
 function register() {
   var email = document.getElementById("email").value
   var usrnm = document.getElementById("usrnm").value
@@ -65,5 +75,4 @@ function register() {
     window.location.assign("../OtpCheck/index.html")
 
 }
-
 

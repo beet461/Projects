@@ -4,12 +4,6 @@
 
 //own
 
-.form {
-    margin-right: 5%;
-    margin-left: 5%;
-    margin-top: 5%;
-}
-
 
 input {
     background-color: rgb(211, 203, 128);
@@ -25,6 +19,28 @@ html {
 
 .green-text {
     color: green;
+}
+
+@keyframes bg-blur {
+    from {
+        filter: blur(0px);
+    } to {
+        filter: blur(10px);
+    }
+}
+
+@keyframes textblur {
+    from {
+        opacity: 0%;
+    } to {
+        opacity: 100%;
+    }
+}
+
+.formatting {
+    margin-top: 15%;
+    margin-right: 2%;
+    margin-left: 1%;
 }
 
 input:hover {

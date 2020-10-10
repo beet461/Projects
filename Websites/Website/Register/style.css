@@ -1,1 +1,30 @@
+.content {
+    position: fixed;
+    top: -5%;
+    left: -5%;
+    right: -5%;
+    z-index: -1;
+    display: block;
+    /* Full height */
+    width: 110%;
+    height: 110%;
+    filter: blur(10px);
+    /* Center and scale the image nicely */
+    background-image: url("background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation-name: bg-blur;
+    animation-duration: 3s;
+}
+
+.invisible {
+    display: none;
+}
+
+
+.unblur {
+    animation-name: textblur;
+    animation-duration: 3s;
+}
 
