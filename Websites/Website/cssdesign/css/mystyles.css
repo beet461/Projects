@@ -53,8 +53,8 @@ input:hover {
 input:focus {
   opacity: 1.0; }
 
-.white-text {
-  color: white; }
+.grey-text {
+  color: #33434D; }
 
 .red-text {
   color: red; }
