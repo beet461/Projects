@@ -13,4 +13,5 @@ func main() {
 	fmt.Println("What is your equation (space needed)?")
 	fmt.Scan(&nu1, &funx, &nu2)
 	calc.Calculate(funx, nu1, nu2)
+	main()
 }
