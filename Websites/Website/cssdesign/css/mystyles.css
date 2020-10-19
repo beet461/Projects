@@ -53,11 +53,14 @@ input:hover {
 input:focus {
   opacity: 1.0; }
 
-.grey-text {
-  color: #33434F; }
+.white-text {
+  color: white; }
 
 .red-text {
   color: red; }
+
+.display_none {
+  display: none; }
 
 /*! bulma.io v0.9.0 | MIT License | github.com/jgthms/bulma */
 @keyframes spinAround {

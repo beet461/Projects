@@ -8,7 +8,6 @@ import (
 	"log"
 	"net/http"
 
-	key "github.com/beet461/Importable/KeyGen"
 	"github.com/gorilla/mux"
 	_ "github.com/lib/pq"
 	"github.com/rs/cors"
@@ -31,49 +30,48 @@ func enableCors(w *http.ResponseWriter) {
 	(*w).Header().Set("Access-Control-Allow-Origin", "*")
 }
 
-func makego(w http.ResponseWriter, r *http.Request) {
+func validation() {
+
+}
+
+func register(w http.ResponseWriter, r *http.Request) {
 	setupResponse(&w, r)
 	if (*r).Method == "OPTIONS" {
 		return
 	}
 	if r.Method == "POST" {
-		//get json input
 
+		//Get json input
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Println(err)
 		}
 
+		//Success and enabling cors
 		w.Header().Set("Content-Type", "application/json")
 		enableCors(&w)
 		w.WriteHeader(http.StatusOK)
 		w.Write([]byte(`{"success":"true"}`))
 
+		//Unmarshaling data and storing it in data
 		var data Data
 		json.Unmarshal([]byte(body), &data)
-		if data.Username == "" {
-			fmt.Println("Username is nil")
-		} else if data.Password == "" {
-			fmt.Println("Password is nil")
-		} else if data.Email == "" {
-			fmt.Println("Email is nil")
-		} else {
-			fmt.Println("Everything is valid")
-		}
+
+		//Input data (User data)
+		fmt.Println("Email =", data.Email)
 		fmt.Println("Username =", data.Username)
-		fmt.Println("Password =", data.Password)
-		fmt.Println("Email =", data.Email, "\n", "")
+		fmt.Println("Password =", data.Password, "\n", "")
 
-		//db connect
-
+		//Database connection.
 		const (
 			host     = "localhost"
 			port     = 5432
 			user     = "postgres"
 			password = "shashi3969"
-			dbname   = "FileMaker"
+			dbname   = "Glade"
 		)
 
+		//Commands for the database.
 		psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+
 			"password=%s dbname=%s sslmode=disable",
 			host, port, user, password, dbname)
@@ -90,25 +88,37 @@ func makego(w http.ResponseWriter, r *http.Request) {
 			panic(err)
 		}
 
-		sqlStatement := fmt.Sprintf(`
-	INSERT INTO reg_data (email, username, password, userkey)
-	VALUES ('%v', '%v', '%v', '%v');`, data.Email, data.Username, data.Password, key.Gen())
-
-		_, err = db.Exec(sqlStatement)
+		validateSQL := fmt.Sprintf(`select * from reg_data where email='%v' and username='%v' and password='%v'`, data.Email, data.Username, data.Password)
+		exec, err := db.Exec(validateSQL)
+		fmt.Println("Query result:", exec)
 		if err != nil {
-			panic(err)
+			fmt.Println("Validation error : ", err)
 		}
+
+		/*	insertSQL := fmt.Sprintf(`
+			INSERT INTO reg_data (email, username, password, userkey)
+			VALUES ('%v', '%v', '%v');`, data.Email, data.Username, data.Password)
+				_, err = db.Exec(insertSQL)
+				if err != nil {
+					fmt.Println("Inserting values error : ", insertSQL)
+				}*/
+
 	}
 }
 
 func main() {
+	//handling requests and endpoints
 	r := mux.NewRouter()
 	api := r.PathPrefix("/api/v1").Subrouter()
-	api.HandleFunc("/makego", makego).Methods("POST")
+	api.HandleFunc("/register", register).Methods("POST")
 	c := cors.New(cors.Options{
-		AllowedOrigins:   []string{"http://localhost:8081"},
+		AllowedOrigins:   []string{"http://localhost:8080"},
 		AllowCredentials: true,
 	})
+
+	//cors related stuff
 	handler := c.Handler(r)
-	log.Fatal(http.ListenAndServe(":8080", handler))
+
+	//Listening for requests
+	log.Fatal(http.ListenAndServe(":8081", handler))
 }
