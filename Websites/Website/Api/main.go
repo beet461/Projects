@@ -90,7 +90,7 @@ func register(w http.ResponseWriter, r *http.Request) {
 
 		validateSQL := fmt.Sprintf(`select * from reg_data where email='%v' and username='%v' and password='%v'`, data.Email, data.Username, data.Password)
 		exec, err := db.Exec(validateSQL)
-		fmt.Println("Query result:", exec)
+		fmt.Println("Query result:", exec, "\n ")
 		if err != nil {
 			fmt.Println("Validation error : ", err)
 		}
@@ -107,7 +107,7 @@ func register(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	//handling requests and endpoints
+	//Handling requests and endpoints
 	r := mux.NewRouter()
 	api := r.PathPrefix("/api/v1").Subrouter()
 	api.HandleFunc("/register", register).Methods("POST")
