@@ -88,9 +88,20 @@ func register(w http.ResponseWriter, r *http.Request) {
 			panic(err)
 		}
 
-		validateSQL := fmt.Sprintf(`select * from reg_data where email='%v' and username='%v' and password='%v'`, data.Email, data.Username, data.Password)
-		exec, err := db.Exec(validateSQL)
-		fmt.Println("Query result:", exec, "\n ")
+		//Checking
+		emailValidateSQL := fmt.Sprintf(`select * from reg_data where email='%v'`, data.Email)
+		userValidateSQL := fmt.Sprintf(`select * from reg_data where user='%v'`, data.Email)
+		emailExec, err := db.Query(emailValidateSQL)
+		for emailExec.Next() {
+			var (
+				Email    string
+				Username string
+			)
+			if err := emailExec.Scan(&Email, &Username); err != nil {
+				log.Fatal(err)
+			}
+			fmt.Println(Email, Username)
+		}
 		if err != nil {
 			fmt.Println("Validation error : ", err)
 		}

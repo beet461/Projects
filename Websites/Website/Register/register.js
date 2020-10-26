@@ -11,6 +11,7 @@ async function unblur() {
 }
 unblur();
 
+//Api requests
 async function apiRequest(email, usrnm, pswrd) {
     try {
         var input = {
@@ -39,7 +40,7 @@ async function apiRequest(email, usrnm, pswrd) {
         console.log(err)
     }
     
-    
+    console.log("Request has been sent")
 }
 
 //The next few functions are to do with validation
@@ -121,4 +122,6 @@ async function register() {
     if (validation === 3) {
         apiRequest(email, usrnm, pswrd)
     }
+
+    validation = 0
 }
