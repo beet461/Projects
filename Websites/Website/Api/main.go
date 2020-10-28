@@ -30,8 +30,58 @@ func enableCors(w *http.ResponseWriter) {
 	(*w).Header().Set("Access-Control-Allow-Origin", "*")
 }
 
-func validation() {
+func insertData(data Data) {
+	insertSQL := fmt.Sprintf(`
+			INSERT INTO reg_data (email, username, password)
+			VALUES ('%v', '%v', '%v');`, data.Email, data.Username, data.Password)
+	dataQuery(insertSQL, "Inserting Data")
+}
 
+func dataQuery(query, dataType string) string {
+	//Defining the values for connecting to the database
+	const (
+		host     = "localhost"
+		port     = 5432
+		user     = "postgres"
+		password = "shashi3969"
+		dbname   = "Glade"
+	)
+
+	//Database values
+	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+
+		"password=%s dbname=%s sslmode=disable",
+		host, port, user, password, dbname)
+
+	//Connecting/opening to the database
+	db, err := sql.Open("postgres", psqlInfo)
+	if err != nil {
+		panic(err)
+	}
+
+	//Closing the database at the end
+	defer db.Close()
+
+	//Pinging the database for any errors
+	err = db.Ping()
+	if err != nil {
+		panic(err)
+	}
+
+	//Query the statement in the database
+	queryResult, err := db.Query(query)
+	if err != nil {
+		fmt.Println("Validation error : ", err)
+	}
+
+	//Check for any existing values that match the input
+	var scanResult[3]string
+	for queryResult.Next() {
+		if err := queryResult.Scan(&scanResult[0]); err != nil {
+			log.Fatal(err)
+		}
+		fmt.Println(dataType, scanResult[0], scanResult[1], scanResult[2])
+	}
+	return scanResult[0], 
 }
 
 func register(w http.ResponseWriter, r *http.Request) {
@@ -57,62 +107,26 @@ func register(w http.ResponseWriter, r *http.Request) {
 		var data Data
 		json.Unmarshal([]byte(body), &data)
 
-		//Input data (User data)
+		//Input data
 		fmt.Println("Email =", data.Email)
 		fmt.Println("Username =", data.Username)
 		fmt.Println("Password =", data.Password, "\n", "")
 
-		//Database connection.
-		const (
-			host     = "localhost"
-			port     = 5432
-			user     = "postgres"
-			password = "shashi3969"
-			dbname   = "Glade"
-		)
-
-		//Commands for the database.
-		psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+
-			"password=%s dbname=%s sslmode=disable",
-			host, port, user, password, dbname)
-
-		db, err := sql.Open("postgres", psqlInfo)
-		if err != nil {
-			panic(err)
-		}
-
-		defer db.Close()
-
-		err = db.Ping()
-		if err != nil {
-			panic(err)
-		}
-
-		//Checking
+		//Sql statements
 		emailValidateSQL := fmt.Sprintf(`select * from reg_data where email='%v'`, data.Email)
-		userValidateSQL := fmt.Sprintf(`select * from reg_data where user='%v'`, data.Email)
-		emailExec, err := db.Query(emailValidateSQL)
-		for emailExec.Next() {
-			var (
-				Email    string
-				Username string
-			)
-			if err := emailExec.Scan(&Email, &Username); err != nil {
-				log.Fatal(err)
-			}
-			fmt.Println(Email, Username)
-		}
-		if err != nil {
-			fmt.Println("Validation error : ", err)
-		}
+		userValidateSQL := fmt.Sprintf(`select * from reg_data where user='%v'`, data.Username)
+		passwordValidateSQL := fmt.Sprintf(`select * from reg_data where password='%v'`, data.Password)
 
-		/*	insertSQL := fmt.Sprintf(`
-			INSERT INTO reg_data (email, username, password, userkey)
-			VALUES ('%v', '%v', '%v');`, data.Email, data.Username, data.Password)
-				_, err = db.Exec(insertSQL)
-				if err != nil {
-					fmt.Println("Inserting values error : ", insertSQL)
-				}*/
+		//Query is run
+		emailResult := dataQuery(emailValidateSQL, "Email : ")
+		userResult := dataQuery(userValidateSQL, "Username : ")
+		passwordResult := dataQuery(passwordValidateSQL, "Password : ")
+
+		if emailResult == "" && userResult == "" && passwordResult == "" {
+			insertData(data)
+		} else {
+			fmt.Println("One of the values is the same")
+		}
 
 	}
 }
