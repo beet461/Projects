@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+//own
+
+.red-text {
+    color: red;
+}
+
+.white-text {
+    color: white;
+}
+
+.invisible {
+    display: none;
+}
+
+.nav_bar {
+    height: 75px;
+}
+
+.nav_register {
+    color: black;
+}
+
+.nav_button {
+    height: 75px;
+    width: 75px;
+}
+
+.nav_logo {
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    height: 100px;
+    width: 100px;
+    background-image: url('../logo.png');
+}
+
+input {
+    background-color: rgb(211, 203, 128);
+}
+
+input:hover {
+    opacity: 1;
+}
+
+input:focus {
+    opacity: 1;
+}
+
+//predefined
+$family-sans-serif: 'Nunito', sans-serif;
+
+@import '../node_modules/bulma/bulma.sass';

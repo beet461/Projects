@@ -1,0 +1,23 @@
+.bar {
+    display: flex;
+    top: 0%;
+    left: 0%;
+}
+
+body {
+    margin: 0;
+}
+
+.logo {
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    padding: 85px 85px;
+}
+
+.item {
+    flex-grow: 1;
+    background-color: #33434d;
+    height: 85px;
+    border: none;
+}
