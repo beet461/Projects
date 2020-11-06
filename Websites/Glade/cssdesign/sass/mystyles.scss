@@ -20,10 +20,6 @@
     height: 75px;
 }
 
-.nav_register {
-    color: black;
-}
-
 .nav_button {
     height: 75px;
     width: 75px;
@@ -33,9 +29,18 @@
     position: fixed;
     left: 0%;
     top: 0%;
-    height: 100px;
-    width: 100px;
-    background-image: url('../logo.png');
+    height: 75px;
+    width: 75px;
+    background-image: url('75px_logo.png');
+}
+.nav_login {
+    position: relative;
+}
+
+.nav_register {
+    position: fixed;
+    right: 0%;
+    top: 0%;
 }
 
 input {

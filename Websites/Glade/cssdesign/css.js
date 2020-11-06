@@ -6,14 +6,14 @@ class NavBar extends HTMLElement {
         this.reg = document.createElement('button');
         this.login = document.createElement('button');
 
+        this.reg.innerHTML = 'register';
+        this.login.innerHTML = 'login';
+
         this.logo.className = 'nav_logo';
-        this.reg.className = 'nav_register';
+        this.login.className = 'nav_button nav_login';
+        this.reg.className = 'nav_button nav_register';
     }
     connectedCallback() {
-        if (window.location !== 'http://localhost:8080/home.html') {
-            //this.logo.onclick = window.location.assign('../home.html');
-            console.log('sdf');
-        }
         document.body.append(this.container);
         this.container.append(this.logo);
         this.container.append(this.reg);
