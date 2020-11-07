@@ -37,7 +37,7 @@ func insertData(data Data) {
 	dataQuery(insertSQL, "insert")
 }
 
-func dataQuery(query, qType string) (scanValues [3]string) {
+func dataQuery(query string, qType string) (scanValues [3]string) {
 	//Defining the values for connecting to the database
 	const (
 		host     = "localhost"
@@ -75,7 +75,9 @@ func dataQuery(query, qType string) (scanValues [3]string) {
 
 	//Check for any existing values that match the input
 	var scanResult [3]string
-	if qType == "data" {
+
+	//Stores result of scan in scanresult[] array
+	if qType == "data" || qType == "dataCheck" {
 		for queryResult.Next() {
 			if err := queryResult.Scan(&scanResult[0], &scanResult[1], &scanResult[2]); err != nil {
 				log.Fatal(err)
@@ -93,7 +95,7 @@ func register(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if r.Method == "POST" {
-
+		fmt.Println("Request at endpoint '/register' has been recieved")
 		//Get json input
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
@@ -134,11 +136,52 @@ func register(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func login(w http.ResponseWriter, r *http.Request) {
+	setupResponse(&w, r)
+	if (*r).Method == "OPTIONS" {
+		return
+	}
+	if r.Method == "POST" {
+		fmt.Println("Request at endpoint '/login' has been recieved")
+
+		body, err := ioutil.ReadAll(r.Body)
+		if err != nil {
+			fmt.Println(err)
+		}
+
+		//Success and enabling cors
+		w.Header().Set("Content-Type", "application/json")
+		enableCors(&w)
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte(`{"success":"true"}`))
+
+		//Unmarshaling data and storing it in struct 'data'
+		var data Data
+		json.Unmarshal([]byte(body), &data)
+
+		emailValidateSQL := fmt.Sprintf(`select * from reg_data where email='%v'`, data.Email)
+		userValidateSQL := fmt.Sprintf(`select * from reg_data where user='%v'`, data.Username)
+		passwordValidateSQL := fmt.Sprintf(`select * from reg_data where password='%v'`, data.Password)
+
+		emailResult := dataQuery(emailValidateSQL, "data")[0]
+		userResult := dataQuery(userValidateSQL, "data")[1]
+		passwordResult := dataQuery(passwordValidateSQL, "data")[2]
+
+		if emailResult == "" || userResult == "" || passwordResult == "" {
+			fmt.Println("Values do not match")
+
+		} else {
+			fmt.Println("Values match, response is sent")
+		}
+	}
+}
+
 func main() {
 	//Handling requests and endpoints
 	r := mux.NewRouter()
 	api := r.PathPrefix("/api/v1").Subrouter()
 	api.HandleFunc("/register", register).Methods("POST")
+	api.HandleFunc("/login", login).Methods("POST")
 	c := cors.New(cors.Options{
 		AllowedOrigins:   []string{"http://localhost:8080"},
 		AllowCredentials: true,
