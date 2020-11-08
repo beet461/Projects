@@ -1,0 +1,13 @@
+C:\Users\varsh\Desktop\Projects\C#-Projects\app\obj\Debug\netcoreapp3.1\app.csprojAssemblyReference.cache
+C:\Users\varsh\Desktop\Projects\C#-Projects\app\obj\Debug\netcoreapp3.1\app.AssemblyInfoInputs.cache
+C:\Users\varsh\Desktop\Projects\C#-Projects\app\obj\Debug\netcoreapp3.1\app.AssemblyInfo.cs
+C:\Users\varsh\Desktop\Projects\C#-Projects\app\obj\Debug\netcoreapp3.1\app.csproj.CoreCompileInputs.cache
+C:\Users\varsh\Desktop\Projects\C#-Projects\app\bin\Debug\netcoreapp3.1\app.exe
+C:\Users\varsh\Desktop\Projects\C#-Projects\app\bin\Debug\netcoreapp3.1\app.deps.json
+C:\Users\varsh\Desktop\Projects\C#-Projects\app\bin\Debug\netcoreapp3.1\app.runtimeconfig.json
+C:\Users\varsh\Desktop\Projects\C#-Projects\app\bin\Debug\netcoreapp3.1\app.runtimeconfig.dev.json
+C:\Users\varsh\Desktop\Projects\C#-Projects\app\bin\Debug\netcoreapp3.1\app.dll
+C:\Users\varsh\Desktop\Projects\C#-Projects\app\bin\Debug\netcoreapp3.1\app.pdb
+C:\Users\varsh\Desktop\Projects\C#-Projects\app\obj\Debug\netcoreapp3.1\app.dll
+C:\Users\varsh\Desktop\Projects\C#-Projects\app\obj\Debug\netcoreapp3.1\app.pdb
+C:\Users\varsh\Desktop\Projects\C#-Projects\app\obj\Debug\netcoreapp3.1\app.genruntimeconfig.cache
