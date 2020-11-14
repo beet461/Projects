@@ -1,4 +1,4 @@
 function ans() {
-    const x = document.getElementById('name').value;
+    const x = document.getElementById('input').value;
     document.getElementById('ans').innerHTML = eval(x);
 }
