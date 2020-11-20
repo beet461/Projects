@@ -11,6 +11,7 @@ import (
 	"github.com/gorilla/mux"
 	_ "github.com/lib/pq"
 	"github.com/rs/cors"
+	"gopkg.in/matryer/respond.v1"
 )
 
 //Data ..
@@ -127,10 +128,13 @@ func register(w http.ResponseWriter, r *http.Request) {
 		userResult := dataQuery(userValidateSQL, "data")[1]
 		passwordResult := dataQuery(passwordValidateSQL, "data")[2]
 
+		insrtd := "^++"
+		ntinsrtd := "^--"
 		if emailResult == "" && userResult == "" && passwordResult == "" {
 			insertData(data)
+			respond.With(w, r, http.StatusOK, insrtd)
 		} else {
-			fmt.Println("One of the values is the same")
+			respond.With(w, r, http.StatusOK, ntinsrtd)
 		}
 
 	}
@@ -167,11 +171,12 @@ func login(w http.ResponseWriter, r *http.Request) {
 		userResult := dataQuery(userValidateSQL, "data")[1]
 		passwordResult := dataQuery(passwordValidateSQL, "data")[2]
 
-		if emailResult == "" || userResult == "" || passwordResult == "" {
-			fmt.Println("Values do not match")
-
+		match := "%++"
+		nmatch := "%--"
+		if emailResult != "" || userResult != "" || passwordResult != "" {
+			respond.With(w, r, http.StatusOK, match)
 		} else {
-			fmt.Println("Values match, response is sent")
+			respond.With(w, r, http.StatusOK, nmatch)
 		}
 	}
 }

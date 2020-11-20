@@ -15,10 +15,15 @@ func importAll(rpstry string) {
 }
 
 func main() {
-	rp1 := "github.com/gorilla/mux"
-	importAll(rp1)
-	rp2 := "github.com/lib/pq"
-	importAll(rp2)
-	rp3 := "github.com/rs/cors"
-	importAll(rp3)
+	const (
+		mux = "github.com/gorilla/mux"
+		lib = "github.com/lib/pq"
+		rscors = "github.com/rs/cors"
+		respond = "gopkg.in/matryer/respond.v1"
+	)
+
+	importAll(mux)
+	importAll(lib)
+	importAll(rscors)
+	importAll(respond)
 }
