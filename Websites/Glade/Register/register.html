@@ -1,47 +1,53 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>My Page</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="register.css" />
-        <link rel="stylesheet" type="text/css" href="../cssdesign/css/mystyles.css">
-    </head>
-    <body>
 
-        <nav-bar></nav-bar>
+<head>
+    <title>My Page</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="register.css" />
+    <link rel="stylesheet" type="text/css" href="../cssdesign/css/mystyles.css">
+</head>
 
-        <div class="content"></div>
+<body>
 
-        <div class="form formatting invisible" id="everything">
-            <div class="field">
-                <div class="control">
-                    <p class="white-text">Email</p>
-                    <input class="input is-info is-rounded transparent" type="email" id="email" placeholder="example@gmail.com">
-                    <p id="emlerr" class="red-text"></p>
-                </div>
-            </div> 
+    <nav-bar></nav-bar>
 
-            <div class="field">
-                <div class="control">
-                    <p class="white-text">Username</p>
-                    <input class="input is-info is-rounded transparent" type="username" id="usrnm" placeholder="JohnDoe123">
-                    <p id="usrerr" class="red-text"></p>
-                </div>
+    <div class="content"></div>
+
+    <div class="form formatting invisible" id="everything">
+        <div class="field">
+            <div class="control">
+                <p class="white-text">Email</p>
+                <input class="input is-info is-rounded transparent" type="email" id="email"
+                    placeholder="example@gmail.com">
+                <p id="emlerr" class="red-text"></p>
             </div>
-
-            <div class="field">
-                <div class="control">
-                    <p class="white-text">Password</p>
-                    <input class="input is-info is-rounded transparent" type="password" id="pswrd" placeholder="password123">
-                    <p id="psderr" class="red-text"></p>
-                </div>
-            </div> 
-
-            <div class="buttons">
-                <button class="is-rounded" onclick="register()">Register</button>
-            </div>
-            
         </div>
-        <script src="register.js"></script>   
-    </body>
+
+        <div class="field">
+            <div class="control">
+                <p class="white-text">Username</p>
+                <input class="input is-info is-rounded transparent" type="username" id="usrnm" placeholder="JohnDoe123">
+                <p id="usrerr" class="red-text"></p>
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <p class="white-text">Password</p>
+                <input class="input is-info is-rounded transparent" type="password" id="pswrd"
+                    placeholder="password123">
+                <p id="psderr" class="red-text"></p>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button class="is-rounded" onclick="register()">Register</button>
+        </div>
+
+    </div>
+    <script src="register.js"></script>
+    <script src="../Global/handleData.js"></script>
+</body>
+
 </html>
