@@ -21,8 +21,8 @@ function ntMatch() {
 
 }
 
-function storedata(incData) {
-    localStorage.setItem("glade.email", incData.email)
-    localStorage.setItem("glade.username", incData.username)
-    localStorage.setItem("glade.password", incData.password)
+function storedata(tbStored) {
+    localStorage.setItem("glade.email", tbStored.email)
+    localStorage.setItem("glade.username", tbStored.username)
+    localStorage.setItem("glade.password", tbStored.password)
 }

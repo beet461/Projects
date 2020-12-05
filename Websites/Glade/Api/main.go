@@ -129,10 +129,13 @@ func register(w http.ResponseWriter, r *http.Request) {
 		passwordResult := dataQuery(passwordValidateSQL, "data")[2]
 
 		insrtd := "^++"
+		valMatch := "!--"
 		ntinsrtd := "^--"
 		if emailResult == "" && userResult == "" && passwordResult == "" {
 			insertData(data)
 			respond.With(w, r, http.StatusOK, insrtd)
+		} else if userResult != "" {
+			respond.With(w, r, http.StatusOK, valMatch)
 		} else {
 			respond.With(w, r, http.StatusOK, ntinsrtd)
 		}
