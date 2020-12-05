@@ -6,11 +6,11 @@ let date;
 date = Date();
 sDate = date.trim().split(' ');
 var eDate = "The *Beep* date : " + sDate[0] + " " + sDate[1] + " " + sDate[2] + " " + sDate[3] + "!";
-var eTime = "And the *Boop* time : " + sDate[4] + "!"; 
+var eTime = "And the *Boop* time : " + sDate[4] + "!";
 
 client.on('ready', () => {
     console.log("Bot has **beep** connected!");
-    
+
 });
 
 client.on("message", message => {
@@ -48,9 +48,12 @@ client.on("message", message => {
             message.channel.send("General Kenobi")
         }
 
-    } catch(err) { 
+        if (splitmessage[0] === "!newrank") {
+            message.channel.send("Ok! A new rank has been created for you!")
+        }
+    } catch (err) {
         console.log("Oops. *Beep* There seems to be a typo! Aborting *Boop* the current process!");
-    } 
+    }
 })
 
 client.login("NzMxNTI0NDgzNDQxMDk4ODI0.XwnTQw.67kYj3jw2wWoMjGNV9ntzd0vYBI")
