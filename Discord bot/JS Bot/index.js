@@ -50,6 +50,7 @@ client.on("message", message => {
 
         if (splitmessage[0] === "!newrank") {
             message.channel.send("Ok! A new rank has been created for you!")
+
         }
     } catch (err) {
         console.log("Oops. *Beep* There seems to be a typo! Aborting *Boop* the current process!");

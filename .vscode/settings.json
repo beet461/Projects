@@ -30,7 +30,7 @@
     "dart.checkForSdkUpdates": false,
     "workbench.colorTheme": "Nord Operator Theme",
     "editor.formatOnSave": true,
-    "window.zoomLevel": -1,
+    "window.zoomLevel": 0,
     "kite.showWelcomeNotificationOnStartup": false,
     "editor.fontWeight": "bold",
     "[html]": {

@@ -131,8 +131,9 @@ function passwordCheck(pswrd, psw, psderr) {
     }
 }
 
-function valMatch() {
-
+function valMatch(username, usr, usrerr) {
+    usr.className = "input is-danger is-rounded"
+    usrerr.innerHTML = `The username:'${username}' already exists, sorry!`
 }
 
 //This is the main function, which is run when the 'Register' button is pressed on the website
@@ -165,32 +166,15 @@ async function register() {
     //The 'validation' variable is to check if the three inputs from the user (email, username, password) have been checked and verified to be acceptable
     //If everuthing has been checked then a request to the api, along with the data, is sent
     if (validation === 3) {
-        var response = apiRequest(input)
+        apiRequest(input)
     }
     //Then the variable is set to 0 to not interfere with any future attempts at inputting the right value
     //e.g. If the user has two acceptable value (let's say the email and the username), but the other value is inacceptable, the 'validation' variable would only equal to 2
     //But if the second attempt has three acceptable values then the 'validation' variable's value would be 5, which means a request wouldn't be sent to the api even if all the correct values had been inputted
     validation = 0;
 
-    //The switch statement runs functions based on the response from the api - the four functions below are defined in handleData.js, not here 
-    //The '^' at the start means the response is from the register part of the api and the '%' at the start means the response is from the login part of the api
-    //'^++' means that the api did not find any existing values in the database that match the input values and has succesfully inserted the new values into the database 
-    //'^--' means that the api found existing values in the database that were the same as the input values and so did not insert new values into the database
-    //'%++' means that the api found matches for the input values and then the javascript here will log the user into the website
-    //'%--' means that the api hasn't found any matches for the input values, which means the user either needs to create a new account or the values were inputted incorrectly and need to be re-typed
-    switch (response) {
-        case "^++":
-            inserted(input)
-            break;
-        case "^--":
-            ntInserted(input)
-            break;
-        case "%++":
-            match(input)
-            break;
-        case "%--":
-            ntMatch(input)
-    }
+
+
 }
 //Function for tellign user values already exist
 //Figure out how to find out which value already exists

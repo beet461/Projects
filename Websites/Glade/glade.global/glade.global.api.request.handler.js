@@ -1,0 +1,77 @@
+//Global data for use in navbar and elsewhere
+var gData = {
+    email: localStorage.getItem("glade.email"),
+    username: localStorage.getItem("glade.username"),
+    password: localStorage.getItem("glade.password")
+}
+
+async function apiRequest(input) {
+    //The below method is called a 'try and catch' method. You try some code and if there are errors the 'catch' past catches it in the variable 'err' 
+    try {
+        //These set the headers
+        var myHeaders = new Headers();
+        myHeaders.append('Content-Type', 'application/json');
+
+        //The variable 'raw' is the input values made into JSON format so the api can easily undersatnd it
+        var raw = JSON.stringify(input);
+
+        //Here you can set options for the request, like what method it is and what data to send
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow',
+        };
+
+        //This part is where the request is actually sent and the response is stored it in the variable 'response'
+        var response = await fetch(
+            'http://localhost:8081/api/v1/register',
+            requestOptions
+        );
+    } catch (err) {
+        //If there is an error, then it logged to the console to see what exactly went wrong
+        console.log(err)
+    }
+    //The switch statement runs functions based on the response from the api - the four functions below are defined in handleData.js, not here 
+    //The '^' at the start means the response is from the register part of the api and the '%' at the start means the response is from the login part of the api
+    //'^++' means that the api did not find any existing values in the database that match the input values and has succesfully inserted the new values into the database 
+    //'^--' means that the api found existing values in the database that were the same as the input values and so did not insert new values into the database
+    //'%++' means that the api found matches for the input values and then the javascript here will log the user into the website
+    //'%--' means that the api hasn't found any matches for the input values, which means the user either needs to create a new account or the values were inputted incorrectly and need to be re-typed
+    switch (response) {
+        case "^++":
+            inserted(input)
+            break;
+        case "^--":
+            ntInserted(input)
+            break;
+        case "%++":
+            match(input)
+            break;
+        case "%--":
+            ntMatch(input)
+    }
+}
+
+function inserted(input) {
+    storedata(input)
+
+}
+
+function ntInserted(input) {
+
+}
+
+function match() {
+
+}
+
+function ntMatch() {
+
+}
+
+function storedata(tbStored) {
+    localStorage.setItem("glade.email", tbStored.email)
+    localStorage.setItem("glade.username", tbStored.username)
+    localStorage.setItem("glade.password", tbStored.password)
+}
