@@ -5,7 +5,7 @@ var gData = {
     password: localStorage.getItem("glade.password")
 }
 
-async function apiRequest(input) {
+async function apiRequest(input, tags) {
     //The below method is called a 'try and catch' method. You try some code and if there are errors the 'catch' past catches it in the variable 'err' 
     try {
         //These set the headers
@@ -40,33 +40,51 @@ async function apiRequest(input) {
     //'%--' means that the api hasn't found any matches for the input values, which means the user either needs to create a new account or the values were inputted incorrectly and need to be re-typed
     switch (response) {
         case "^++":
-            inserted(input)
+            inserted(input, tags)
             break;
         case "^--":
-            ntInserted(input)
+            ntInserted(input, tags)
             break;
         case "%++":
-            match(input)
+            match(input, tags)
             break;
         case "%--":
-            ntMatch(input)
+            ntMatch(input, tags)
     }
 }
 
-function inserted(input) {
+function displayErr(tags) {
+
+}
+
+function displayCorrect(tags) {
+    var correct = "input is-primary is-rounded"
+
+    tags.email.classname = correct
+    tags.emerr.className = "invisible"
+    tags.username.classname = correct
+    tags.usrerr.classname = "invisible"
+    tags.password.classname = correct
+    tags.psderr.classname = "green-text"
+
+
+}
+
+function inserted(input, tags) {
     storedata(input)
+    displayCorrect(tags)
 
 }
 
-function ntInserted(input) {
+function ntInserted(input, tags) {
+    displayErr(tags)
+}
+
+function match(input, tags) {
 
 }
 
-function match() {
-
-}
-
-function ntMatch() {
+function ntMatch(input, tags) {
 
 }
 

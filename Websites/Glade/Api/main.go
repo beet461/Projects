@@ -129,7 +129,7 @@ func register(w http.ResponseWriter, r *http.Request) {
 		passwordResult := dataQuery(passwordValidateSQL, "data")[2]
 
 		insrtd := "^++"
-		valMatch := "!--"
+		valMatch := "^--"
 		ntinsrtd := "^--"
 		if emailResult == "" && userResult == "" && passwordResult == "" {
 			insertData(data)

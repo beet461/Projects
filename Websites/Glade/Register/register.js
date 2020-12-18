@@ -13,38 +13,6 @@ async function unblur() {
 }
 unblur();
 
-//This function sends the api a request with the data
-async function apiRequest(input) {
-    //The below method is called a 'try and catch' method. You try some code and if there are errors the 'catch' past catches it in the variable 'err' 
-    try {
-        //These set the headers
-        var myHeaders = new Headers();
-        myHeaders.append('Content-Type', 'application/json');
-
-        //The variable 'raw' is the input values made into JSON format so the api can easily undersatnd it
-        var raw = JSON.stringify(input);
-
-        //Here you can set options for the request, like what method it is and what data to send
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow',
-        };
-
-        //This part is where the request is actually sent and the response is stored it in the variable 'response'
-        var response = await fetch(
-            'http://localhost:8081/api/v1/register',
-            requestOptions
-        );
-    } catch (err) {
-        //If there is an error, then it logged to the console to see what exactly went wrong
-        console.log(err)
-    }
-
-    //Finally it returns the response from the api, which is used all the way down below
-    return response
-}
 
 //The next few functions are to do with validation
 //This function is used to check if the values it is given are empty or there are spaces
@@ -73,9 +41,6 @@ function emailCheck(email, em, emerr) {
             em.className = 'input is-danger is-rounded';
             emerr.innerHTML = 'Error! Something is incorrect!';
         } else {
-            //If there are no errors in the values so far, that means the values are acceptable and can be used
-            em.className = 'input is-primary is-rounded';
-            emerr.className = 'invisible';
             //Lastly the 'validation' variable has 1 added to it for the reason explained below in the register() function
             validation++
         }
@@ -97,9 +62,6 @@ function usernameCheck(usrnm, usr, usrerr) {
             usr.className = 'input is-danger is-rounded';
             usrerr.innerHTML = 'Error! Something is incorrect!';
         } else {
-            //If there are no errors in the values so far, that means the values are acceptable and can be used
-            usr.className = 'input is-primary is-rounded';
-            usrerr.className = 'invisible';
             //Lastly the 'validation' variable has 1 added to it for the reason explained below in the register() function
             validation++
         }
@@ -122,18 +84,10 @@ function passwordCheck(pswrd, psw, psderr) {
             psw.className = 'input is-danger is-rounded';
             psderr.innerHTML = 'Error! Something is incorrect!';
         } else {
-            //If there are no errors in the values so far, that means the values are acceptable and can be used
-            psw.className = 'input is-primary is-rounded';
-            psderr.className = 'invisible';
             //Lastly the 'validation' variable has 1 added to it for the reason explained below in the register() function
             validation++
         }
     }
-}
-
-function valMatch(username, usr, usrerr) {
-    usr.className = "input is-danger is-rounded"
-    usrerr.innerHTML = `The username:'${username}' already exists, sorry!`
 }
 
 //This is the main function, which is run when the 'Register' button is pressed on the website
@@ -156,7 +110,17 @@ async function register() {
         password: document.getElementById('pswrd').value
     }
 
-    //These functions parse the input values for any inacceptable characters and tell the user if there are 
+    var tags = {
+        email: em,
+        username: usr,
+        password: psw,
+        emerr: emerr,
+        usrerr: usrerr,
+        psderr: psderr,
+        type: "reg"
+    }
+
+    //These functions parse the input values for any inacceptable characters and tell the user if there are any 
     emailCheck(input.email, em, emerr);
     //The functions for parsing the username and password are basically the same but they display the error in different places so there needs to be different functions
     usernameCheck(input.username, usr, usrerr);
@@ -166,7 +130,7 @@ async function register() {
     //The 'validation' variable is to check if the three inputs from the user (email, username, password) have been checked and verified to be acceptable
     //If everuthing has been checked then a request to the api, along with the data, is sent
     if (validation === 3) {
-        apiRequest(input)
+        apiRequest(input, tags)
     }
     //Then the variable is set to 0 to not interfere with any future attempts at inputting the right value
     //e.g. If the user has two acceptable value (let's say the email and the username), but the other value is inacceptable, the 'validation' variable would only equal to 2
