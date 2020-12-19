@@ -54,19 +54,42 @@ async function apiRequest(input, tags) {
 }
 
 function displayErr(tags) {
+    var wrong = "input is-danger is-rounded"
+
+    tags.emerr.classname = "red-text"
+    tags.usrerr.classname = "red-text"
+    tags.psderr.classname = "red-text"
+
+    if (tags.type === "reg") {
+        var errMessage = "Error! This username already exists!"
+    } else if (tags.type === "log") {
+        errMessage = "Error! The email, username or password do not match with any existing accounts!"
+    }
+
+    if (tags.email !== "nil") {
+        tags.email.classname = wrong
+    } else if (tags.username !== "nil") {
+        tags.username.classname = wrong
+    } else if (tags.password !== "nil") {
+        tags.password.classname = wrong
+        tags.psderr.innerHTML = errMessage
+    }
 
 }
 
 function displayCorrect(tags) {
     var correct = "input is-primary is-rounded"
 
-    tags.email.classname = correct
-    tags.emerr.className = "invisible"
-    tags.username.classname = correct
-    tags.usrerr.classname = "invisible"
-    tags.password.classname = correct
-    tags.psderr.classname = "green-text"
-
+    if (tags.email !== "nil") {
+        tags.email.classname = correct
+        tags.emerr.className = "invisible"
+    } else if (tags.username !== "nil") {
+        tags.username.classname = correct
+        tags.usrerr.classname = "invisible"
+    } else if (tags.password !== "nil") {
+        tags.password.classname = correct
+        tags.psderr.classname = "invisible"
+    }
 
 }
 

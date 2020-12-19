@@ -1,7 +1,7 @@
 //These variables are used to validate the input values
 //This regular expression is for the email, and when used to parse the input values, it will only return a match if the input looks something like a regular email 
 var eregex = /[^ ][a-zA-Z.]*[@][a-zA-Z]*[.][a-zA-Z.]*/;
-var uregex = /[^ ][a-zA-Z_.]*/;
+var uregex = /[^ ][a-zA-Z_.-*]*/;
 var validation = 0
 
 //This part is css animations
@@ -33,13 +33,13 @@ function emailCheck(email, em, emerr) {
     //The below 'if' statement checks if the email value is empty OR it consists of more than one word(s) by running the spremove function. And if either condition is true, it means the value has an error so an error message is displayed
     if (!spremove(email)) {
         em.className = 'input is-danger is-rounded'
-        emerr.innerHTML = "Error! Something is incorrect"
+        emerr.innerHTML = "Error! There seems to be spaces, or an empty field!"
     } else {
         //After the above 'if' statement is run and there are no errors so far, another 'if' statement is run
         //This time the value is parsed by a regular expression (regex). The regex checks the value for any special characters or spaces and displays an error if there are any
         if (!eregex.test(email)) {
             em.className = 'input is-danger is-rounded';
-            emerr.innerHTML = 'Error! Something is incorrect!';
+            emerr.innerHTML = 'Error! Something seems to be wrong!';
         } else {
             //Lastly the 'validation' variable has 1 added to it for the reason explained below in the register() function
             validation++
@@ -54,13 +54,13 @@ function usernameCheck(usrnm, usr, usrerr) {
     //The below 'if' statement checks if the username value is empty OR it consists of more than one word(s) by running the spremove function. And if either condition is true, it means the value has an error so an error message is displayed
     if (!spremove(usrnm)) {
         usr.className = 'input is-danger is-rounded';
-        usrerr.innerHTML = 'Error! Something is incorrect!';
+        usrerr.innerHTML = 'Error! There seems to be spaces, or an empty field!';
     } else {
         //After the above 'if' statement is run and there are no errors so far, another 'if' statement is run
         //This time the value is parsed by a regular expression (regex). The regex checks the value for any special characters or spaces and displays an error if there are any
         if (!uregex.test(usrnm)) {
             usr.className = 'input is-danger is-rounded';
-            usrerr.innerHTML = 'Error! Something is incorrect!';
+            usrerr.innerHTML = 'Error! There seems to be special characters! (Remember you can only use _ , . , - or *!)';
         } else {
             //Lastly the 'validation' variable has 1 added to it for the reason explained below in the register() function
             validation++
@@ -76,13 +76,13 @@ function passwordCheck(pswrd, psw, psderr) {
     //The below 'if' statement checks if the password value is empty OR it consists of more than one word(s) by running the spremove function. And if either condition is true, it means the value has an error so an error message is displayed
     if (!spremove(pswrd)) {
         psw.className = 'input is-danger is-rounded';
-        psderr.innerHTML = 'Error! Something is incorrect!';
+        psderr.innerHTML = 'Error! There seems to be spaces, or an empty field!';
     } else {
         //After the above 'if' statement is run and there are no errors so far, another 'if' statement is run
         //This time the value is parsed by a regular expression (regex). The regex checks the value for any special characters or spaces and displays an error if there are any
         if (!uregex.test(pswrd)) {
             psw.className = 'input is-danger is-rounded';
-            psderr.innerHTML = 'Error! Something is incorrect!';
+            psderr.innerHTML = 'Error! There seems to be special characters! (Remember you can only use _ , . , - or *!)';
         } else {
             //Lastly the 'validation' variable has 1 added to it for the reason explained below in the register() function
             validation++

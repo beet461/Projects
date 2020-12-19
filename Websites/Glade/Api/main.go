@@ -119,19 +119,15 @@ func register(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("Password =", data.Password, "\n", "")
 
 		//Sql statements
-		emailValidateSQL := fmt.Sprintf(`select * from reg_data where email='%v'`, data.Email)
 		userValidateSQL := fmt.Sprintf(`select * from reg_data where user='%v'`, data.Username)
-		passwordValidateSQL := fmt.Sprintf(`select * from reg_data where password='%v'`, data.Password)
 
 		//Query is run
-		emailResult := dataQuery(emailValidateSQL, "data")[0]
 		userResult := dataQuery(userValidateSQL, "data")[1]
-		passwordResult := dataQuery(passwordValidateSQL, "data")[2]
 
 		insrtd := "^++"
 		valMatch := "^--"
 		ntinsrtd := "^--"
-		if emailResult == "" && userResult == "" && passwordResult == "" {
+		if userResult == "" {
 			insertData(data)
 			respond.With(w, r, http.StatusOK, insrtd)
 		} else if userResult != "" {
