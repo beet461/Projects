@@ -116,3 +116,7 @@ function storedata(tbStored) {
     localStorage.setItem("glade.username", tbStored.username)
     localStorage.setItem("glade.password", tbStored.password)
 }
+
+function showPassword() {
+    document.getElementById("password").type = "text"
+}

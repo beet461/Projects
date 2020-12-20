@@ -37,17 +37,18 @@
                 <p class="white-text">Password</p>
                 <input class="input is-info is-rounded transparent" type="password" id="pswrd"
                     placeholder="password123">
+                <input type="checkbox" onclick="showPassword()">
                 <p id="psderr" class="red-text"></p>
             </div>
         </div>
 
         <div class="buttons">
-            <button class="is-rounded" onclick="register()">Register</button>
+            <button class="button is-rounded" onclick="register()" id="login">Register</button>
         </div>
 
     </div>
     <script src="register.js"></script>
-    <script src="../Global/api.request.handler.js"></script>
+    <script src="../Global/dataHandler.js"></script>
     <script src="../Global/navbar.style.js"></script>
 </body>
 

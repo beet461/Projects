@@ -39,7 +39,7 @@ function emailCheck(email, em, emerr) {
         //This time the value is parsed by a regular expression (regex). The regex checks the value for any special characters or spaces and displays an error if there are any
         if (!eregex.test(email)) {
             em.className = 'input is-danger is-rounded';
-            emerr.innerHTML = 'Error! Something seems to be wrong!';
+            emerr.innerHTML = 'Error! There seem to be special characters!';
         } else {
             //Lastly the 'validation' variable has 1 added to it for the reason explained below in the register() function
             validation++
@@ -105,9 +105,9 @@ async function register() {
     //The input values are stored in the 'input' object
     //To access the individual values (like email or username) you can just type in 'input.email' for example
     var input = {
-        email: document.getElementById('email').value,
-        username: document.getElementById('usrnm').value,
-        password: document.getElementById('pswrd').value
+        email: em.value.trim(),
+        username: usr.value.trim(),
+        password: psw.value.trim()
     }
 
     var tags = {
@@ -140,5 +140,3 @@ async function register() {
 
 
 }
-//Function for tellign user values already exist
-//Figure out how to find out which value already exists

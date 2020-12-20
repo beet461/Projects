@@ -13,22 +13,33 @@
 
     <div class="content"></div>
 
-    <div class="form formatting invisible">
+    <div class="form formatting invisible" id="everything">
 
         <div class="field">
             <div class="control">
                 <p class="white-text">Username/Email</p>
                 <input type="username" class="input is-info is-rounded transparent" id="username/email"
                     placeholder="johndoe123/example@gmail.com">
+                <p id="lusrerr" class="red-text"></p>
             </div>
         </div>
 
+        <div class="field">
+            <div class="control">
+                <p class="white-text">Password</p>
+                <input type="password" class="input is-info is-rounded transparent" id="password"
+                    placeholder="password123">
+                <input type="checkbox" onclick="showPassword()">
+                <p id="lpsderr" class="red-text"></p>
+            </div>
+        </div>
 
+        <button class="button is-rounded" onclick="login()" id="login">Login</button>
     </div>
 
     <script src="login.js"></script>
     <script src="../Global/navbar.style.js"></script>
-    <script src="../Global/api.request.handler.js"></script>
+    <script src="../Global/dataHandler.js"></script>
 </body>
 
 </html>

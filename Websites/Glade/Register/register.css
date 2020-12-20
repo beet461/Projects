@@ -39,7 +39,7 @@
     height: 110%;
     filter: blur(10px);
     /* Center and scale the image nicely */
-    background-image: url('../cssdesign/css/background.jpg');
+    background-image: url('../CSSdesign/resources/regBack.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
