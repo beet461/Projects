@@ -7,11 +7,6 @@
     }
 }
 
-.unblur {
-    animation-name: textblur;
-    animation-duration: 3s;
-}
-
 @keyframes textblur {
     from {
         opacity: 0%;
@@ -19,6 +14,11 @@
     to {
         opacity: 100%;
     }
+}
+
+.unblur {
+    animation-name: textblur;
+    animation-duration: 3s;
 }
 
 .formatting {

@@ -63,7 +63,7 @@ function displayErr(tags) {
     if (tags.type === "reg") {
         var errMessage = "Error! This username already exists!"
     } else if (tags.type === "log") {
-        errMessage = "Error! The email, username or password do not match with any existing accounts!"
+        errMessage = `Error! The ${tags.inptType} or password do not match any existing accounts!`
     }
 
     if (tags.email !== "nil") {

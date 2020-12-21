@@ -1,6 +1,6 @@
 var eregex = /[^ ][a-zA-Z.]*[@][a-zA-Z]*[.][a-zA-Z.]*/;
 var pregex = /[^ ][a-zA-Z_.-*]*/;
-var email
+var inptType
 var validation = 0
 
 async function unblur() {
@@ -18,30 +18,30 @@ function spremove(valin) {
     return true;
 }
 
-function emailusernameCheck(input, emusr, lusrerr) {
-    if (!spremove(input.emailusername)) {
+function usernameCheck(input, emusr, usrerr) {
+    if (!spremove(input.username)) {
         emusr.className = "input is-danger is-rounded transparent"
-        lusrerr.innerHtml = "Error! You seemed to have spaces present!"
-    } else if (!eregex.test(input.emailusername) || !pregex.test(input.emailusername)) {
+        usrerr.innerHtml = "Error! You seemed to have spaces present!"
+    } else if (!eregex.test(input.username) || !pregex.test(input.username)) {
         emusr.className = "input is-danger is-rounded transparent"
-        lusrerr.innerHtml = "Error! There seem to be special characters!"
+        usrerr.innerHtml = "Error! There seem to be special characters!"
     } else {
-        if (eregex.text(input.emailusername)) {
-            email = true
-        } else if (pregex.test(input.emailusername)) {
-            email = false
+        if (eregex.text(input.username)) {
+            inptType = "email"
+        } else if (pregex.test(input.username)) {
+            inptType = "username"
             validation++
         }
     }
 }
 
-function passwordCheck(input, psd, lpsderr) {
+function passwordCheck(input, psd, psderr) {
     if (!spremove(input.password)) {
         psd.className = "input is-danger is-rounded transparent"
-        lpsderr.innerHtml = "Error! There seems to be spaces present!"
+        psderr.innerHtml = "Error! There seems to be spaces present!"
     } else if (!pregex.test(input.password)) {
         emusr.className = "input is-danger is-rounded transparent"
-        lpsderr.innerHtml = "Error! There seem to be special characters! (Remember you can only use _ , . , - or *!)"
+        psderr.innerHtml = "Error! There seem to be special characters! (Remember you can only use _ , . , - or *!)"
     } else {
         validation++
     }
@@ -51,15 +51,30 @@ function login() {
     var emusr = document.getElementById("username/email")
     var psd = document.getElementById("password")
 
-    var lusrerr = document.getElementById("lusrerr")
-    var lpsderr = document.getElementById("lpsderr")
+    var usrerr = document.getElementById("usrerr")
+    var psderr = document.getElementById("psderr")
 
     var input = {
-        emailusername: emusr.value.trim(),
+        email: "nil",
+        username: emusr.value.trim(),
         password: psd.value.trim(),
-        lusrerr: lusrerr,
-        lpsderr: lpsderr
+        usrerr: usrerr,
+        psderr: psderr
     }
 
-    emailusernameCheck(input, emusr, lusrerr)
-}
+    var tags = {
+        emusr: emusr,
+        psd: psd,
+        usrerr: usrerr,
+        psderr: psderr,
+        inptType: inptType,
+        type: "log"
+    }
+
+    usernameCheck(input, emusr, usrerr)
+    passwordCheck(inputs, psd, psderr)
+
+    if (validation === 2) {
+        apiRequest(inputs, tags)
+    }
+} 

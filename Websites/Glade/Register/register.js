@@ -7,8 +7,7 @@ var validation = 0
 //This part is css animations
 async function unblur() {
     window.setTimeout(function () {
-        document.getElementById('everything').className =
-            'form formatting unblur';
+        document.getElementById('everything').classList = 'form formatting unblur';
     }, 1000);
 }
 unblur();
