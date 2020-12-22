@@ -1,7 +1,7 @@
 //These variables are used to validate the input values
 //This regular expression is for the email, and when used to parse the input values, it will only return a match if the input looks something like a regular email 
-var eregex = /[^ ][a-zA-Z.]*[@][a-zA-Z]*[.][a-zA-Z.]*/;
-var uregex = /[^ ][a-zA-Z_.-*]*/;
+var eregex = /[^ ][a-zA-Z.]*[@][a-zA-Z]*[.][a-zA-Z.]*/
+var uregex = /[^ ][a-zA-Z_.\-*]*/
 var validation = 0
 
 //This part is css animations

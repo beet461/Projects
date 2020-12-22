@@ -19,6 +19,7 @@ type Data struct {
 	Email    string
 	Username string
 	Password string
+	LogType  string
 }
 
 func setupResponse(w *http.ResponseWriter, req *http.Request) {
@@ -163,16 +164,20 @@ func login(w http.ResponseWriter, r *http.Request) {
 		json.Unmarshal([]byte(body), &data)
 
 		emailValidateSQL := fmt.Sprintf(`select * from reg_data where email='%v'`, data.Email)
-		userValidateSQL := fmt.Sprintf(`select * from reg_data where user='%v'`, data.Username)
+		typeValidateSQL := ""
 		passwordValidateSQL := fmt.Sprintf(`select * from reg_data where password='%v'`, data.Password)
 
+		if data.LogType == "email" {
+			typeValidateSQL = fmt.Sprintf(`select * from reg_data where user='%v'`, data.Username)
+		}
+
 		emailResult := dataQuery(emailValidateSQL, "data")[0]
-		userResult := dataQuery(userValidateSQL, "data")[1]
+		typeResult := dataQuery(typeValidateSQL, "data")[1]
 		passwordResult := dataQuery(passwordValidateSQL, "data")[2]
 
 		match := "%++"
 		nmatch := "%--"
-		if emailResult != "" || userResult != "" || passwordResult != "" {
+		if emailResult != "" || typeResult != "" || passwordResult != "" {
 			respond.With(w, r, http.StatusOK, match)
 		} else {
 			respond.With(w, r, http.StatusOK, nmatch)
