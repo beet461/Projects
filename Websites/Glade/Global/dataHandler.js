@@ -25,7 +25,7 @@ async function apiRequest(input, tags) {
 
         //This part is where the request is actually sent and the response is stored it in the variable 'response'
         var response = await fetch(
-            'http://localhost:8081/api/v1/register',
+            `http://localhost:8081/api/v1/${input.type}`,
             requestOptions
         );
     } catch (err) {

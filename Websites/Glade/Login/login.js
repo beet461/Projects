@@ -1,7 +1,5 @@
-/* */
-
 var eregex = /[^ ][a-zA-Z.]*[@][a-zA-Z]*[.][a-zA-Z.]*/;
-var pregex = /[^ ][\da-zA-Z_.\-*]*/;
+var pregex = /[^ ][\da-zA-Z_.*]*/;
 var inptType;
 var validation = 0;
 
@@ -19,62 +17,58 @@ function spremove(valin) {
     return true;
 }
 
-function usernameCheck(input, emusr, usrerr) {
-    if (!spremove(input.username)) {
-        emusr.className = "input is-danger is-rounded transparent";
-        usrerr.innerHtml = "Error! You seemed to have spaces present!";
-    } else if (!eregex.test(input.username) || !pregex.test(input.username)) {
-        emusr.className = "input is-danger is-rounded transparent";
-        usrerr.innerHtml = "Error! There seem to be special characters!";
+function check(input, inputTag, psderr, tag) {
+    psderr.className = "red-text";
+
+    if (!spremove(input)) {
+        var err = true;
+        inputTag.className = "input is-danger is-rounded";
+        psderr.innerHTML = "Error! There seem to be spaces, or an empty field!";
+    } else if (!eregex.test(input) || !pregex.test(input)) {
+        var match = false
+        var err = true
+        inputTag.className = "input is-danger is-rounded";
+        psderr.innerHTML = "Error! There seem to be special characters (remember you can only use _ , . or *!)! Or a value was entered incorrectly";
     } else {
-        if (eregex.text(input.username)) {
-            inptType = "email";
-        } else if (pregex.test(input.username)) {
-            inptType = "username";
+        if (tag === "email/user" && match) {
+            if (eregex.test(input)) {
+                inptType = "email";
+            } else if (pregex.test(input)) {
+                inptType = "username"
+            }
+        } else if (tag === "password" && !err) {
+            inputTag.className = "input is-info is-rounded"
+            psderr.className = "invisible"
             validation++;
-            emusr.className = "input is-info is-rounded transparent";
         }
     }
 }
 
-function passwordCheck(input, psd, psderr) {
-    if (!spremove(input.password)) {
-        psd.className = "input is-danger is-rounded transparent";
-        psderr.innerHtml = "Error! There seems to be spaces present!";
-    } else if (!pregex.test(input.password)) {
-        psd.className = "input is-danger is-rounded transparent";
-        psderr.innerHtml = "Error! There seem to be special characters! (Remember you can only use _ , . , - or *!)";
-    } else {
-        validation++;
-        psd.className = "input is-info is-rounded transparent";
-    }
-}
-
 function login() {
-    var emusr = document.getElementById("username/email");
+    var usr = document.getElementById("username/email");
     var psd = document.getElementById("password");
 
     var usrerr = document.getElementById("usrerr");
     var psderr = document.getElementById("psderr");
 
     var input = {
-        username: emusr.value.trim(),
+        username: usr.value.trim(),
         password: psd.value.trim(),
         logType: inptType
     };
 
     var tags = {
         email: "nil",
-        username: emusr,
+        username: usr,
         password: psd,
         usrerr: usrerr,
         psderr: psderr,
         inptType: inptType,
-        type: "log"
+        type: "login"
     };
 
-    usernameCheck(input, emusr, usrerr);
-    passwordCheck(input, psd, psderr);
+    check(input.username, usr, usrerr, "email/user");
+    check(input.password, psd, psderr, "password");
 
     if (validation === 2) {
         apiRequest(input, tags);

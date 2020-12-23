@@ -1,7 +1,7 @@
 //These variables are used to validate the input values
 //This regular expression is for the email, and when used to parse the input values, it will only return a match if the input looks something like a regular email 
 var eregex = /[^ ][a-zA-Z.]*[@][a-zA-Z]*[.][a-zA-Z.]*/
-var uregex = /[^ ][a-zA-Z_.\-*]*/
+var uregex = /[^ ][a-zA-Z_.*]*/
 var validation = 0
 
 //This part is css animations
@@ -15,77 +15,29 @@ unblur();
 
 //The next few functions are to do with validation
 //This function is used to check if the values it is given are empty or there are spaces
-function spremove(valin) {
+function spremove(input) {
     //The '.trim().split(' ').length' removes the spaces at the start and end of the value and splits it into seperate words every time there is a space
     //Then the '.length' measures how many individual words there are and, if there are more than 1 it returns false  
-    if (valin === "" || valin.trim().split(' ').length > 1) {
+    if (input === "" || input.trim().split(' ').length > 1) {
         return false;
     }
     //If there is nothing wrong then this function returns true
     return true;
 }
 
-function emailCheck(email, em, emerr) {
-    //The first thing this function does is make sure that the error message can be displayed, because if the values are correct then the 'p' tag where the error message is displayed is forced to be invisible
-    emerr.className = "red-text"
-    //The next thing this function does, is run the below 'if' statement
-    //The below 'if' statement checks if the email value is empty OR it consists of more than one word(s) by running the spremove function. And if either condition is true, it means the value has an error so an error message is displayed
-    if (!spremove(email)) {
-        em.className = 'input is-danger is-rounded'
-        emerr.innerHTML = "Error! There seems to be spaces, or an empty field!"
-    } else {
-        //After the above 'if' statement is run and there are no errors so far, another 'if' statement is run
-        //This time the value is parsed by a regular expression (regex). The regex checks the value for any special characters or spaces and displays an error if there are any
-        if (!eregex.test(email)) {
-            em.className = 'input is-danger is-rounded';
-            emerr.innerHTML = 'Error! There seem to be special characters!';
-        } else {
-            //Lastly the 'validation' variable has 1 added to it for the reason explained below in the register() function
-            validation++
-        }
-    }
-}
+function check(input, inputTag, psderr, regex) {
+    psderr.className = "red-text";
 
-function usernameCheck(usrnm, usr, usrerr) {
-    //The first thing this function does is make sure that the error message can be displayed, because if the values are correct then the 'p' tag where the error message is displayed is forced to be invisible
-    usrerr.className = "red-text"
-    //The next thing this function does, is run the below 'if' statement
-    //The below 'if' statement checks if the username value is empty OR it consists of more than one word(s) by running the spremove function. And if either condition is true, it means the value has an error so an error message is displayed
-    if (!spremove(usrnm)) {
-        usr.className = 'input is-danger is-rounded';
-        usrerr.innerHTML = 'Error! There seems to be spaces, or an empty field!';
+    if (!spremove(input)) {
+        inputTag.className = "input is-danger is-rounded";
+        psderr.innerHTML = "Error! There seem to be spaces, or an empty field!";
+    } else if (!regex.test(input)) {
+        inputTag.className = "input is-danger is-rounded";
+        psderr.innerHTML = "Error! There seem to be special characters (remember you can only use _ , . or *!)! Or a value was entered incorrectly";
     } else {
-        //After the above 'if' statement is run and there are no errors so far, another 'if' statement is run
-        //This time the value is parsed by a regular expression (regex). The regex checks the value for any special characters or spaces and displays an error if there are any
-        if (!uregex.test(usrnm)) {
-            usr.className = 'input is-danger is-rounded';
-            usrerr.innerHTML = 'Error! There seems to be special characters! (Remember you can only use _ , . , - or *!)';
-        } else {
-            //Lastly the 'validation' variable has 1 added to it for the reason explained below in the register() function
-            validation++
-        }
-    }
-
-}
-
-function passwordCheck(pswrd, psw, psderr) {
-    //The first thing this function does is make sure that the error message can be displayed, because if the values are correct then the 'p' tag where the error message is displayed is forced to be invisible
-    psderr.className = "red-text"
-    //The next thing this function does, is run the below 'if' statement
-    //The below 'if' statement checks if the password value is empty OR it consists of more than one word(s) by running the spremove function. And if either condition is true, it means the value has an error so an error message is displayed
-    if (!spremove(pswrd)) {
-        psw.className = 'input is-danger is-rounded';
-        psderr.innerHTML = 'Error! There seems to be spaces, or an empty field!';
-    } else {
-        //After the above 'if' statement is run and there are no errors so far, another 'if' statement is run
-        //This time the value is parsed by a regular expression (regex). The regex checks the value for any special characters or spaces and displays an error if there are any
-        if (!uregex.test(pswrd)) {
-            psw.className = 'input is-danger is-rounded';
-            psderr.innerHTML = 'Error! There seems to be special characters! (Remember you can only use _ , . , - or *!)';
-        } else {
-            //Lastly the 'validation' variable has 1 added to it for the reason explained below in the register() function
-            validation++
-        }
+        inputTag.className = "input is-info is-rounded"
+        psderr.className = "invisible"
+        validation++;
     }
 }
 
@@ -106,7 +58,8 @@ async function register() {
     var input = {
         email: em.value.trim(),
         username: usr.value.trim(),
-        password: psw.value.trim()
+        password: psw.value.trim(),
+        type: "register"
     }
 
     var tags = {
@@ -116,26 +69,21 @@ async function register() {
         emerr: emerr,
         usrerr: usrerr,
         psderr: psderr,
-        type: "reg"
+        type: "register"
     }
 
-    //These functions parse the input values for any inacceptable characters and tell the user if there are any 
-    emailCheck(input.email, em, emerr);
-    //The functions for parsing the username and password are basically the same but they display the error in different places so there needs to be different functions
-    usernameCheck(input.username, usr, usrerr);
-    passwordCheck(input.password, psw, psderr);
+    check(input.email, em, psderr, eregex)
+    check(input.username, usr, psderr, uregex)
+    check(input.password, psw, psderr, uregex)
 
     //The 'if' statement checks if the 'validation' variable's value is equal to 3
     //The 'validation' variable is to check if the three inputs from the user (email, username, password) have been checked and verified to be acceptable
     //If everuthing has been checked then a request to the api, along with the data, is sent
+    //Then the 'validation' variable is set to 0 to not interfere with any future attempts at inputting the right value
+    //e.g. If the user has two acceptable value (let's say the email and the username), but the other value is inacceptable, the 'validation' variable would only equal to 2
+    //But if the second attempt has three acceptable values then the 'validation' variable's value would be 5, which means a request wouldn't be sent to the api even if all the correct values had been input
     if (validation === 3) {
         apiRequest(input, tags)
+        validation = 0;
     }
-    //Then the variable is set to 0 to not interfere with any future attempts at inputting the right value
-    //e.g. If the user has two acceptable value (let's say the email and the username), but the other value is inacceptable, the 'validation' variable would only equal to 2
-    //But if the second attempt has three acceptable values then the 'validation' variable's value would be 5, which means a request wouldn't be sent to the api even if all the correct values had been inputted
-    validation = 0;
-
-
-
 }
