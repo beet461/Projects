@@ -5,15 +5,12 @@ var gData = {
     password: localStorage.getItem("glade.password")
 }
 
-async function apiRequest(input, tags) {
+async function apiRequest(raw, tags) {
     //The below method is called a 'try and catch' method. You try some code and if there are errors the 'catch' past catches it in the variable 'err' 
     try {
         //These set the headers
         var myHeaders = new Headers();
         myHeaders.append('Content-Type', 'application/json');
-
-        //The variable 'raw' is the input values made into JSON format so the api can easily undersatnd it
-        var raw = JSON.stringify(input);
 
         //Here you can set options for the request, like what method it is and what data to send
         var requestOptions = {
@@ -25,8 +22,7 @@ async function apiRequest(input, tags) {
 
         //This part is where the request is actually sent and the response is stored it in the variable 'response'
         var response = await fetch(
-            `http://localhost:8081/api/v1/${input.type}`,
-            requestOptions
+            tags.requestLocation, requestOptions
         );
     } catch (err) {
         //If there is an error, then it logged to the console to see what exactly went wrong
@@ -40,16 +36,18 @@ async function apiRequest(input, tags) {
     //'%--' means that the api hasn't found any matches for the input values, which means the user either needs to create a new account or the values were inputted incorrectly and need to be re-typed
     switch (response) {
         case "^++":
-            inserted(input, tags)
+            displayCorrect(tags)
             break;
         case "^--":
-            ntInserted(input, tags)
+            displayErr(tags)
+            break;
+        case "^+-":
             break;
         case "%++":
-            match(input, tags)
+            displayCorrect(tags)
             break;
         case "%--":
-            ntMatch(input, tags)
+            displayErr(tags)
     }
 }
 
@@ -73,6 +71,15 @@ function displayErr(tags) {
     } else if (tags.password !== "nil") {
         tags.password.classname = wrong
         tags.psderr.innerHTML = errMessage
+    }
+
+}
+
+function displayWarn(tags) {
+    var warn = "input is-warning is-rounded"
+
+    if (tags.type === "reg") {
+        var warnMessage = "Warning this password already exists! You might want to change it!"
     }
 
 }

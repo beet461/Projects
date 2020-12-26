@@ -64,13 +64,16 @@ function login() {
         usrerr: usrerr,
         psderr: psderr,
         inptType: inptType,
-        type: "login"
+        type: "login",
+        requestLocation: "localhost:8081/api/v1/login"
     };
 
     check(input.username, usr, usrerr, "email/user");
     check(input.password, psd, psderr, "password");
 
+    var raw = JSON.stringify(input)
+
     if (validation === 2) {
-        apiRequest(input, tags);
+        apiRequest(raw, tags);
     }
 } 

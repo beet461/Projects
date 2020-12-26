@@ -69,12 +69,15 @@ async function register() {
         emerr: emerr,
         usrerr: usrerr,
         psderr: psderr,
-        type: "register"
+        type: "register",
+        requestLocation: "localhost:8081/api/v1/register"
     }
 
     check(input.email, em, psderr, eregex)
     check(input.username, usr, psderr, uregex)
     check(input.password, psw, psderr, uregex)
+
+    var raw = JSON.stringify(input)
 
     //The 'if' statement checks if the 'validation' variable's value is equal to 3
     //The 'validation' variable is to check if the three inputs from the user (email, username, password) have been checked and verified to be acceptable
@@ -83,7 +86,7 @@ async function register() {
     //e.g. If the user has two acceptable value (let's say the email and the username), but the other value is inacceptable, the 'validation' variable would only equal to 2
     //But if the second attempt has three acceptable values then the 'validation' variable's value would be 5, which means a request wouldn't be sent to the api even if all the correct values had been input
     if (validation === 3) {
-        apiRequest(input, tags)
+        apiRequest(raw, tags)
         validation = 0;
     }
 }
