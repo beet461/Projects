@@ -97,7 +97,6 @@ func register(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if r.Method == "POST" {
-		fmt.Println("Request at endpoint '/register' has been recieved")
 		//Get json input
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
@@ -113,11 +112,6 @@ func register(w http.ResponseWriter, r *http.Request) {
 		//Unmarshaling data and storing it in data
 		var data Data
 		json.Unmarshal([]byte(body), &data)
-
-		//Input data
-		fmt.Println("Email =", data.Email)
-		fmt.Println("Username =", data.Username)
-		fmt.Println("Password =", data.Password, "\n", "")
 
 		//Sql statements
 		userValidateSQL := fmt.Sprintf(`select * from reg_data where user='%v'`, data.Username)
@@ -148,8 +142,6 @@ func login(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if r.Method == "POST" {
-		fmt.Println("Request at endpoint '/login' has been recieved")
-
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Println(err)
@@ -165,26 +157,24 @@ func login(w http.ResponseWriter, r *http.Request) {
 		var data Data
 		json.Unmarshal([]byte(body), &data)
 
-		emailValidateSQL := fmt.Sprintf(`select * from reg_data where email='%v'`, data.Email)
-		typeValidateSQL := ""
+		userValidateSQL := fmt.Sprintf(`select * from reg_data where username="%v"`, data.Username)
 		passwordValidateSQL := fmt.Sprintf(`select * from reg_data where password='%v'`, data.Password)
 
-		if data.LogType == "email" {
-			typeValidateSQL = fmt.Sprintf(`select * from reg_data where user='%v'`, data.Username)
-		}
-
-		emailResult := dataQuery(emailValidateSQL, "data")[0]
-		typeResult := dataQuery(typeValidateSQL, "data")[1]
+		userResult := dataQuery(userValidateSQL, "data")[1]
 		passwordResult := dataQuery(passwordValidateSQL, "data")[2]
 
 		match := "%++"
 		nmatch := "%--"
-		if emailResult != "" || typeResult != "" || passwordResult != "" {
+		if userResult != "" || passwordResult != "" {
 			respond.With(w, r, http.StatusOK, match)
 		} else {
 			respond.With(w, r, http.StatusOK, nmatch)
 		}
 	}
+}
+
+func checkData() {
+
 }
 
 func main() {
