@@ -1,4 +1,4 @@
-package gladeapi
+package main
 
 import (
 	"database/sql"
