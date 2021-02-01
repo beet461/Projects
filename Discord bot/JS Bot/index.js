@@ -53,7 +53,7 @@ client.on("message", message => {
 
         }
     } catch (err) {
-        console.log("Oops. *Beep* There seems to be a typo! Aborting *Boop* the current process!");
+        console.log("Oops. *Beep* There seems to be a typo! Aborting *Boop* the current process! Error : " + err);
     }
 })
 

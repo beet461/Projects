@@ -1,0 +1,15 @@
+{
+    "type": "module",
+    "name": "node",
+    "version": "1.0.0",
+    "description": "testing files",
+    "main": "index.js",
+    "directories": {
+        "lib": "lib"
+    },
+    "scripts": {
+        "test": "node ."
+    },
+    "author": "rushvith",
+    "license": "ISC"
+}
