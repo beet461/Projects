@@ -1,0 +1,36 @@
+Calculator contents:
+    Functions:
+        + - add
+        - - subtract
+        x - multiply
+        ÷ - divide
+        % - percent (not modulus)
+
+    Numbers:
+        1
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        0
+        . - Decimal point
+    
+    Other:
+        ⌫ - Delete
+        AC - All clear
+
+
+Aesthetics:
+    Background:
+        https://www.google.com/search?q=school+background+images&client=firefox-b-d&sxsrf=ALeKk01o4DAr1Yg_A8K9bSAZULVJc6UvTA:1611138596196&source=lnms&tbm=isch&sa=X&ved=2ahUKEwis4Nb9pqruAhU0QUEAHRjdBlcQ_AUoAXoECBMQAw&biw=1908&bih=968#imgrc=ojOqEnbKlH3rlM
+    Element colors:
+        Input - rgb(255, 255, 255), #ffffff
+        Numbers - rgb(35, 55, 82), #233752
+        Functions - rgb(199, 124, 44), #c77c2c
+        Others - rgb(0,0,0), #000000
+        
+
