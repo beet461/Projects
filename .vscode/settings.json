@@ -34,7 +34,7 @@
     "kite.showWelcomeNotificationOnStartup": false,
     "editor.fontWeight": "bold",
     "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
